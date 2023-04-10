@@ -1,5 +1,7 @@
 <?php
 
+use App\Http\Controllers\auth\loginController;
+use App\Http\Controllers\auth\RegisterController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -18,6 +20,8 @@ Route::get('/', function () {
 });
 
 
-Route::get('/login', function(){
-    return view('pages.login');
-});
+
+
+Route::get('/register', [RegisterController::class,'create'])->middleware('guest');
+Route::post('/register', [RegisterController::class,'store'])->middleware('guest');;
+Route::get('/login', [loginController::class,'store']);
