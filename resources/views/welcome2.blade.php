@@ -106,32 +106,39 @@
             </div>
         </div>
     </nav>
-    
-    <div class="  flex container mx-auto overflow-x-scroll ">
+
+    <!-- main section -->
+
+    <div class="  flex container mx-auto overflow-x-scroll " id="app">
         <aside class="w-1/6 mr-5 ml-1 border-r-2  bg-gray-800 h-screen rounded-md  shadow-2xl ">
             <ul class="flex gap-6 justify-center flex-col mt-8  h-[80%]  ">
                 <li class="text-sm font-medium  hover:rounded-md hover:text-white hover:bg-gray-700 px-4 py-3 text-center text-gray-300">
-                    <a href="">Dashboard</a>
+                <router-link to="/">Go to Home</router-link>
+
                 </li>
                 <li class="text-sm font-medium  hover:rounded-md hover:text-white hover:bg-gray-700 px-4 py-3 text-center text-gray-300">
-                    <a href="">My Jobs</a>
+                    <router-link to="/about">Go to About</router-link>
+
                 </li>
                 <li class="text-sm font-medium  hover:rounded-md hover:text-white hover:bg-gray-700 px-4 py-3 text-center text-gray-300">
-                    <a href="">My reviews</a>
+                    <router-link to="/">Go to Home</router-link>
+
                 </li>
                 <li class="text-sm font-medium  hover:rounded-md hover:text-white hover:bg-gray-700 px-4 py-3 text-center text-gray-300">
-                    <a href="">My details</a>
+                    <router-link to="/">Go to Home</router-link>
+                    
                 </li>
             </ul>
         </aside>
 
         <div class="primary  flex-1 flex   mr-6 ">
             
-            <div class="flex flex-col w-full">
-                <button data-modal-target="defaultModal" data-modal-toggle="defaultModal" class="block text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800" type="button">
+            <div class="flex flex-col w-full justify-center items-center">
+                <!-- <button data-modal-target="defaultModal" data-modal-toggle="defaultModal" class="block text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800" type="button">
                 Toggle modal
-                </button>
-                <div class="-my-2 overflow-x-auto sm:-mx-6 lg:-mx-8">
+                </button> -->
+                <router-view></router-view>
+                <!-- <div class="-my-2 overflow-x-auto sm:-mx-6 lg:-mx-8">
                     <div class="py-2 align-middle inline-block min-w-full sm:px-6 lg:px-8">
                     <div class="shadow overflow-hidden border-b border-gray-200 sm:rounded-lg">
                         <table class="min-w-full divide-y divide-gray-200">
@@ -200,7 +207,7 @@
                         </table>
                     </div>
                     </div>
-                </div>
+                </div> -->
             </div>
 
 
@@ -209,117 +216,39 @@
         </div>
     </div>
 
-
-<!-- modal -->
-
-    <div class="relative z-10" aria-labelledby="modal-title"  role="dialog" aria-modal="true" id="defaultModal" aria-hidden="true">
-    <!--
-        Background backdrop, show/hide based on modal state.
-
-        Entering: "ease-out duration-300"
-        From: "opacity-0"
-        To: "opacity-100"
-        Leaving: "ease-in duration-200"
-        From: "opacity-100"
-        To: "opacity-0"
-    -->
-    <div class="fixed inset-0 bg-gray-500 bg-opacity-0  transition-opacity"></div>
-
-    <div class="fixed inset-0 z-10 overflow-y-auto">
-        <div class="flex min-h-full items-end justify-center p-4 text-center sm:items-center sm:p-0">
-        <!--
-            Modal panel, show/hide based on modal state.
-
-            Entering: "ease-out duration-300"
-            From: "opacity-0 translate-y-4 sm:translate-y-0 sm:scale-95"
-            To: "opacity-100 translate-y-0 sm:scale-100"
-            Leaving: "ease-in duration-200"
-            From: "opacity-100 translate-y-0 sm:scale-100"
-            To: "opacity-0 translate-y-4 sm:translate-y-0 sm:scale-95"
-        -->
-        <div class=" hidden relative transform overflow-hidden rounded-lg bg-white text-left shadow-xl transition-all sm:my-8 sm:w-full sm:max-w-lg">
-            <div class="bg-white px-4 pb-4 pt-5 sm:p-6 sm:pb-4">
-            <div class="sm:flex sm:items-start">
-                <div class="mx-auto flex h-12 w-12 flex-shrink-0 items-center justify-center rounded-full bg-red-100 sm:mx-0 sm:h-10 sm:w-10">
-                <svg class="h-6 w-6 text-red-600" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true">
-                    <path stroke-linecap="round" stroke-linejoin="round" d="M12 9v3.75m-9.303 3.376c-.866 1.5.217 3.374 1.948 3.374h14.71c1.73 0 2.813-1.874 1.948-3.374L13.949 3.378c-.866-1.5-3.032-1.5-3.898 0L2.697 16.126zM12 15.75h.007v.008H12v-.008z" />
-                </svg>
-                </div>
-                <div class="mt-3 text-center sm:ml-4 sm:mt-0 sm:text-left">
-                <h3 class="text-base font-semibold leading-6 text-gray-900" id="modal-title">Deactivate account</h3>
-                <div class="mt-2">
-                    <p class="text-sm text-gray-500">Are you sure you want to deactivate your account? All of your data will be permanently removed. This action cannot be undone.</p>
-                </div>
-                </div>
-            </div>
-            </div>
-            <div class="bg-gray-50 px-4 py-3 sm:flex sm:flex-row-reverse sm:px-6">
-            <button type="button" class="inline-flex w-full justify-center rounded-md bg-red-600 px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-red-500 sm:ml-3 sm:w-auto">Deactivate</button>
-            <button type="button" class="mt-3 inline-flex w-full justify-center rounded-md bg-white px-3 py-2 text-sm font-semibold text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 hover:bg-gray-50 sm:mt-0 sm:w-auto">Cancel</button>
-            </div>
-        </div>
-        </div>
-    </div>
-    </div>
-
+  <!-- <div id="app">
+    <h1>Hello App!</h1>
+    <p>
+      
+      <router-link to="/">Go to Home</router-link>
+      <router-link to="/about">Go to About</router-link>
+    </p>
+    
+    <router-view></router-view>
+  </div> -->
 </body>
 <script>
-    const userMenuButton = document.getElementById('user-menu-button')
-    const userMenu = document.getElementById('user-menu')
-    mobileMenuButton = document.getElementById('mobile-menu-button')
-    mobileMenu = document.getElementById('mobile-menu')
 
-    userMenuButton.onclick = ()=>{
-        userMenu.classList.toggle('hidden')
-    }
-
-    document.addEventListener('click',(e)=>{
-         console.log(userMenuButton.contains(e.target))
-         if(!userMenuButton.contains(e.target)){
-            console.log('the element is not inside the user menu button')
-            userMenu.classList.add('hidden')
-         }
-    })
-
-    mobileMenuButton.addEventListener('click',()=>{
-        mobileMenu.classList.toggle('hidden')
-    })
+const Home = { template: '<div class="text-red-300 font-bold">Home</div>' }
+const About = { template: '<div class="text-red-300 font-bold">About</div>' }
 
 
-
-    //vue
-
-    // 1. Define route components.
-// These can be imported from other files
-const Home = { template: '<div>Home</div>' }
-const About = { template: '<div>About</div>' }
-
-// 2. Define some routes
-// Each route should map to a component.
-// We'll talk about nested routes later.
 const routes = [
   { path: '/', component: Home },
   { path: '/about', component: About },
 ]
 
-// 3. Create the router instance and pass the `routes` option
-// You can pass in additional options here, but let's
-// keep it simple for now.
+
 const router = VueRouter.createRouter({
-  // 4. Provide the history implementation to use. We are using the hash history for simplicity here.
   history: VueRouter.createWebHashHistory(),
-  routes, // short for `routes: routes`
+  routes, 
 })
 
-// 5. Create and mount the root instance.
 const app = Vue.createApp({})
-// Make sure to _use_ the router instance to make the
-// whole app router-aware.
+
 app.use(router)
 
 app.mount('#app')
-
-// Now the app has started!
 
 </script>
 </html>
