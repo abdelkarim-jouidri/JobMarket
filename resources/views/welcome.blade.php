@@ -7,7 +7,7 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <title>Document</title>
 </head>
-<body class="h-screen w-screen">
+<body class="h-screen w-screen bg-gray-50">
     <nav class="bg-gray-800  py-4 mb-8 sticky top-0">
         <div class="mx-auto max-w-7xl px-2 sm:px-6 lg:px-8">
             <div class="relative flex h-16 items-center justify-between">
@@ -107,16 +107,22 @@
     <div class="  flex">
         <aside class="w-[13%] mr-5 ml-1 border-r-2  bg-gray-800 h-screen rounded-md  shadow-2xl">
             <ul class="flex justiy-center items-center flex-col mt-8    ">
-                <li class="text-sm font-medium hover:bg-gray-900 hover:rounded-md hover:text-white hover:bg-gray-700 px-4 py-3 text-center text-gray-300">
+                <li class="text-sm font-medium  hover:rounded-md hover:text-white hover:bg-gray-700 px-4 py-3 text-center text-gray-300">
                     <a href="">Dashboard</a>
                 </li>
-                <li class="text-sm font-medium hover:bg-gray-900 hover:rounded-md hover:text-white hover:bg-gray-700 px-4 py-3 text-center text-gray-300">
-                    <a href="">Explore Jobs</a>
+                <li class="text-sm font-medium  hover:rounded-md hover:text-white hover:bg-gray-700 px-4 py-3 text-center text-gray-300">
+                    <a href="">My Jobs</a>
+                </li>
+                <li class="text-sm font-medium  hover:rounded-md hover:text-white hover:bg-gray-700 px-4 py-3 text-center text-gray-300">
+                    <a href="">My reviews</a>
+                </li>
+                <li class="text-sm font-medium  hover:rounded-md hover:text-white hover:bg-gray-700 px-4 py-3 text-center text-gray-300">
+                    <a href="">My details</a>
                 </li>
             </ul>
         </aside>
 
-        <div class="primary bg-red-200 flex-1 flex justify-center items-center">
+        <div class="primary  flex-1 flex justify-center items-center">
             lorem2  
         </div>
     </div>
