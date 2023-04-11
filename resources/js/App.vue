@@ -24,7 +24,9 @@
             <RouterView></RouterView>
         </MainContent>
     </div>
-    <Modal :show="showModal"></Modal>
+    <Modal 
+        :show="showModal"
+        :csrfToken = csrfToken></Modal>
 </template>
 
 <script setup>
@@ -33,7 +35,18 @@ import NavBar from './components/NavBar.vue'
 import SideBar from './components/SideBar.vue'
 import MainContent from './components/MainContent.vue'
 import Modal from './components/Modal.vue'
-import { ref } from 'vue'
+import { onMounted, ref } from 'vue'
+
+let csrfToken = ref(null);
+
+onMounted(()=>{
+    csrfToken.value = document.querySelector('meta[name="csrf-token"]').getAttribute('content')
+})
+
+setTimeout(()=>{
+console.log(csrfToken.value)
+
+},3000)
 
 let showModal = ref(false)
 
