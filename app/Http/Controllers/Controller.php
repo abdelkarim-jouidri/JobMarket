@@ -23,13 +23,7 @@ class Controller extends BaseController
             'contract_type'=>$request->contract_type
         ];
 
-        // $data = [
-        //     'title'=>'$request->title',
-        //     'status'=>'$request->status',
-        //     'description'=>'$request->description',
-        //     'job_type'=>'$request->job_type',
-        //     'contract_type'=>'$request->contract_type'
-        // ];
+    
         Job::create($data);
         return response()->json(['success' => true]);
     }
@@ -37,5 +31,11 @@ class Controller extends BaseController
     public function index(){
         $data = Job::all();
         return response()->json($data);
+    }
+
+    public function destroy(Job $job){
+        $job->delete();
+        return response()->json(['success' => true]);
+
     }
 }

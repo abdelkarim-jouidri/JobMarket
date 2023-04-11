@@ -20,9 +20,13 @@
         </SideBar>
         <MainContent 
             @add="showModal=true"
-            @close="()=>showModal=false"
             >
-            <RouterView :data="data"></RouterView>
+            <RouterView 
+                :data="data"
+                @close="()=>showModal=false"
+                @delete="handle"
+                @confirmDelete=""
+                ></RouterView>
         </MainContent>
     </div>
     <Modal 
@@ -54,8 +58,14 @@ let showModal = ref(false)
 let data = ref(null)
 let showDeleteModal = ref(false)
 
-function handle(){
-    alert('clicked')
+function handle(id){
+    
+        axios.delete(`/dashboard/myjobs/${id}`)
+        .then(response=>console.log(response.data))
+        .catch(err=>console.log(err.response.data))
+       
+        
+    
 }
 
 onMounted(()=>{

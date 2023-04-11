@@ -47,10 +47,10 @@ import { ref, watch } from 'vue';
     
    
 
-    const emit = defineEmits([
-        'close',
-        'add'
-    ])
+    // const emit = defineEmits([
+    //     'close',
+    //     'add'
+    // ])
 
     defineProps({
         show : Boolean,
@@ -71,11 +71,11 @@ import { ref, watch } from 'vue';
         console.log('reached the emit point')
         // emit('close')
         document.getElementById('form').reset()
-        emit('add')
+        // emit('add')
         
     }
 
     function closeModal(){
-        emit('close')
+        // emit('close')
     }
 </script>
