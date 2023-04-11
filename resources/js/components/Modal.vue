@@ -2,9 +2,9 @@
     <form v-if="show" action="/dashboard/myjobs" method="post" >
         @csrf
         <div class="fixed inset-0 bg-gray-600/75 w-screen grid place-items-center">
-            <div class="bg-white p-6 w-[50vw] max-w-[600px] ">
+            <div class="bg-white p-6 w-[50vw] max-w-[600px] rounded-xl">
                 <header>
-                    header of the modal
+                    Add item
                 </header>
                 <main>
                     <div class="mb-6">
@@ -18,7 +18,7 @@
                     </div>
                 </main>
                 <footer class="border-t-1 border-blue-400 p-2 flex justify-between">
-                    <button class="px-4 py-2 rounded-[2em] bg-gray-300" @click="$emit('close')">close</button>
+                    <div  class="cursor-pointer px-4 py-2 rounded-[2em] bg-gray-300" @click="$emit('close')">close</div>
                     <button type="submit" class="px-4 py-2 rounded-[2em] bg-blue-300">Add</button>
                 </footer>
             </div>

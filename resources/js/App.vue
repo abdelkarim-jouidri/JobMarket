@@ -20,7 +20,7 @@
         </SideBar>
         <MainContent 
             @add="showModal=true"
-            @close="showModal=false">
+            @close="()=>alert('hi')">
             <RouterView></RouterView>
         </MainContent>
     </div>
@@ -36,9 +36,9 @@ import Modal from './components/Modal.vue'
 import { ref } from 'vue'
 
 let showModal = ref(false)
+
+let close = ()=>{
+    alert('hi')
+}
 </script>
 
-<script type="module">
-    import process from 'process';
-    window.process = process;
-</script>
