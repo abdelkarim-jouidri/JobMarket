@@ -28,6 +28,7 @@
     <Modal 
         :show="showModal"
         :csrfToken = csrfToken
+        @close="close"
         ></Modal>
 </template>
 
@@ -59,19 +60,12 @@ watch(data,(newData)=>{
     console.log(newData)
 })
 
-// setInterval(()=>{
-//     axios.get('/about')
-//           .then(response=> {
-//             data.value = response.data
-//             console.log(data.value)
-//           })
-//           .catch(err=>console.log(err))
-// },500)
+
 
 let showModal = ref(false)
 
 let close = ()=>{
-    alert('hi')
+    showModal.value = false
 }
 </script>
 

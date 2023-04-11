@@ -15,8 +15,22 @@ class Controller extends BaseController
     use AuthorizesRequests, DispatchesJobs, ValidatesRequests;
 
     public function test(Request $request){
+        $data = [
+            'title'=>$request->title,
+            'status'=>$request->status,
+            'description'=>$request->description,
+            'job_type'=>$request->job_type,
+            'contract_type'=>$request->contract_type
+        ];
 
-        Test::create(['attr1'=>$request->attr1]);
+        // $data = [
+        //     'title'=>'$request->title',
+        //     'status'=>'$request->status',
+        //     'description'=>'$request->description',
+        //     'job_type'=>'$request->job_type',
+        //     'contract_type'=>'$request->contract_type'
+        // ];
+        Job::create($data);
         return response()->json(['success' => true]);
     }
 
