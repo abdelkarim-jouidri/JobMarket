@@ -19,10 +19,11 @@
     
         </SideBar>
         <MainContent 
-            @add="showModal=true"
+            
             >
             <RouterView 
                 :data="data"
+                @add="showModal=true"
                 @close="()=>showModal=false"
                 @delete="handle"
                 @confirmDelete=""
