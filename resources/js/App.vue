@@ -13,7 +13,7 @@
                     exact-active-class="bg-gray-700 text-white" 
                     class="w-[80%] rounded-lg text-sm font-medium  hover:rounded-md hover:text-white hover:bg-gray-700 px-4 py-3 text-center text-gray-300" 
                     to="/about" >
-                    Go to About
+                    Go to Jobs
                 </router-link>
         
     
@@ -29,7 +29,14 @@
         :show="showModal"
         :csrfToken = csrfToken
         @close="close"
-        ></Modal>
+        @add="handle"
+        >
+    </Modal>
+    <DeleteModal 
+        @delete="handle"
+        :showDeleteModal="showDeleteModal">
+
+    </DeleteModal>
 </template>
 
 <script setup>
@@ -38,11 +45,18 @@ import NavBar from './components/NavBar.vue'
 import SideBar from './components/SideBar.vue'
 import MainContent from './components/MainContent.vue'
 import Modal from './components/Modal.vue'
+import DeleteModal from './components/DeleteModal.vue'
 import { onMounted, ref, watch } from 'vue'
 import axios from 'axios'
 
 let csrfToken = ref(null);
+let showModal = ref(false)
 let data = ref(null)
+let showDeleteModal = ref(false)
+
+function handle(){
+    alert('clicked')
+}
 
 onMounted(()=>{
     csrfToken.value = document.querySelector('meta[name="csrf-token"]').getAttribute('content')
@@ -50,19 +64,16 @@ onMounted(()=>{
         axios.get('/about')
           .then(response=> {
             data.value = response.data
-            console.log(data.value)
+            // console.log(data.value)
           })
           .catch(err=>console.log(err))
     },500)
 })
 
-watch(data,(newData)=>{
-    console.log(newData)
-})
 
 
 
-let showModal = ref(false)
+
 
 let close = ()=>{
     showModal.value = false

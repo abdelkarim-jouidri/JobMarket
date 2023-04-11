@@ -27,7 +27,7 @@
                 </main>
                 <footer class="border-t-1 border-blue-400 p-2 flex justify-between">
                     <div  class="cursor-pointer px-4 py-2 rounded-[2em] bg-gray-300" @click="$emit('close')">close</div>
-                    <button type="submit" class="px-4 py-2 rounded-[2em] bg-blue-300" @click.prevent="storeData" >Add</button>
+                    <button type="submit" class="px-4 py-2 rounded-[2em] bg-blue-300" @click.prevent="add" >Add</button>
                 </footer>
             </div>
         </div>
@@ -47,8 +47,9 @@ import { ref, watch } from 'vue';
     
    
 
-    defineEmits([
-        'close'
+    const emit = defineEmits([
+        'close',
+        'add'
     ])
 
     defineProps({
@@ -56,7 +57,7 @@ import { ref, watch } from 'vue';
         csrfToken : String
     })
 
-    let storeData = ()=>{
+    let add = ()=>{
         axios.post('/dashboard/myjobs',{
             'title':title.value,
             'job_type':job_type.value,
@@ -70,7 +71,7 @@ import { ref, watch } from 'vue';
         console.log('reached the emit point')
         // emit('close')
         document.getElementById('form').reset()
-        emit('close')
+        emit('add')
         
     }
 
