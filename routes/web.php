@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\auth\loginController;
 use App\Http\Controllers\auth\RegisterController;
+use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -25,3 +26,5 @@ Route::get('/', function () {
 Route::get('/register', [RegisterController::class,'create'])->middleware('guest');
 Route::post('/register', [RegisterController::class,'store'])->middleware('guest');;
 Route::get('/login', [loginController::class,'store']);
+
+Route::post('/dashboard/myjobs',[Controller::class,'test']);

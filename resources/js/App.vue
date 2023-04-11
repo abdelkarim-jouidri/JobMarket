@@ -15,23 +15,30 @@
                     to="/about" >
                     Go to About
                 </router-link>
-            
-            <!-- <li class="text-sm font-medium  hover:rounded-md hover:text-white hover:bg-gray-700 px-4 py-3 text-center text-gray-300">
-                <router-link to="/about" exact-active-class="bg-gray-200 text-black">Go to About</router-link>
-            </li> -->
-            <!-- <router-link to="/" exact-active-class="bg-gray-200 text-black">Go to Home</router-link>
-            <router-link to="/about" exact-active-class="bg-gray-200 text-black">Go to About</router-link> -->
-
+        
     
         </SideBar>
-        <MainContent>
+        <MainContent 
+            @add="showModal=true"
+            @close="showModal=false">
             <RouterView></RouterView>
         </MainContent>
     </div>
+    <Modal :show="showModal"></Modal>
 </template>
 
 <script setup>
+
 import NavBar from './components/NavBar.vue'
 import SideBar from './components/SideBar.vue'
 import MainContent from './components/MainContent.vue'
+import Modal from './components/Modal.vue'
+import { ref } from 'vue'
+
+let showModal = ref(false)
+</script>
+
+<script type="module">
+    import process from 'process';
+    window.process = process;
 </script>
