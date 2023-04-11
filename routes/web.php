@@ -28,3 +28,4 @@ Route::post('/register', [RegisterController::class,'store'])->middleware('guest
 Route::get('/login', [loginController::class,'store']);
 
 Route::post('/dashboard/myjobs',[Controller::class,'test']);
+Route::get('/about',[Controller::class,'index']);

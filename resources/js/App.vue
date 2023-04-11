@@ -20,13 +20,15 @@
         </SideBar>
         <MainContent 
             @add="showModal=true"
-            @close="()=>alert('hi')">
-            <RouterView></RouterView>
+            @close="()=>showModal=false"
+            >
+            <RouterView :data="data"></RouterView>
         </MainContent>
     </div>
     <Modal 
         :show="showModal"
-        :csrfToken = csrfToken></Modal>
+        :csrfToken = csrfToken
+        ></Modal>
 </template>
 
 <script setup>
@@ -35,18 +37,36 @@ import NavBar from './components/NavBar.vue'
 import SideBar from './components/SideBar.vue'
 import MainContent from './components/MainContent.vue'
 import Modal from './components/Modal.vue'
-import { onMounted, ref } from 'vue'
+import { onMounted, ref, watch } from 'vue'
+import axios from 'axios'
 
 let csrfToken = ref(null);
+let data = ref(null)
 
 onMounted(()=>{
     csrfToken.value = document.querySelector('meta[name="csrf-token"]').getAttribute('content')
+    setInterval(()=>{
+        axios.get('/about')
+          .then(response=> {
+            data.value = response.data
+            console.log(data.value)
+          })
+          .catch(err=>console.log(err))
+    },500)
 })
 
-setTimeout(()=>{
-console.log(csrfToken.value)
+watch(data,(newData)=>{
+    console.log(newData)
+})
 
-},3000)
+// setInterval(()=>{
+//     axios.get('/about')
+//           .then(response=> {
+//             data.value = response.data
+//             console.log(data.value)
+//           })
+//           .catch(err=>console.log(err))
+// },500)
 
 let showModal = ref(false)
 
