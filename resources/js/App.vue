@@ -24,6 +24,7 @@
             <RouterView 
                 v-if="data"
                 :data="data"
+                @show-update="showUpdateModal"
                 @add="displayAddModal"
                 @close="()=>showModal=false"
                 @delete="handle"
@@ -48,6 +49,7 @@
     <DeleteModal 
         @delete="handle"
         @confirm-delete="confirmDelete"
+        @close-delete-modal="closeDeleteModal"
         :showDeleteModal="showDeleteModal">
 
     </DeleteModal>
@@ -75,11 +77,20 @@ let data = ref(null)
 let showDeleteModal = ref(false)
 let showAlert = ref(false)
 let currentJobId = ref(null)
+let showUpdate = ref(false)
+
+function closeDeleteModal(){
+    showDeleteModal.value = false
+}
 
 function addItem(){
     showModal.value = false
     // document.getElementById('form').reset()
     // setTimeout(()=>showAlert.value = true,600)
+}
+
+function showUpdateModal(){
+    alert('clicked update icon')
 }
 
 function displayAddModal(){
