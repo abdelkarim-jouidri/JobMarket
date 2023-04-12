@@ -24,7 +24,7 @@
             <RouterView 
                 v-if="data"
                 :data="data"
-                @add="showModal=true"
+                @add="displayAddModal"
                 @close="()=>showModal=false"
                 @delete="handle"
                 @confirmDelete=""
@@ -42,7 +42,7 @@
         :show="showModal"
         :csrfToken = csrfToken
         @close="close"
-        @add="handle"
+        @add-item="addItem"
         >
     </Modal>
     <DeleteModal 
@@ -51,7 +51,9 @@
         :showDeleteModal="showDeleteModal">
 
     </DeleteModal>
-    <Alert/>
+    <Alert 
+        :showAlert="showAlert"
+        @close="closeAlert"/>
 </template>
 
 <script setup>
@@ -69,14 +71,31 @@ let csrfToken = ref(null);
 let showModal = ref(false)
 let data = ref(null)
 let showDeleteModal = ref(false)
+let showAlert = ref(true)
 let currentJobId = ref(null)
+
+function addItem(){
+    showModal.value = false
+    document.getElementById('form').reset()
+    setTimeout(()=>showAlert.value = true,600)
+}
+
+function displayAddModal(){
+    showModal.value=true
+    console.log(document.getElementById('form').reset())
+
+}
 
 function handle(id){
     
         
-       showDeleteModal.value = true
+        showDeleteModal.value = true
         currentJobId.value = id
     
+}
+
+let closeAlert = (e) => {
+    showAlert.value = false
 }
 
 onMounted(()=>{
@@ -103,6 +122,10 @@ let confirmDelete = ()=>{
 
 let close = ()=>{
     showModal.value = false
+    console.log('before',document.getElementById('form').title)
+
+    document.getElementById('form').reset()
+    console.log('after',document.getElementById('form').title)
 }
 </script>
 

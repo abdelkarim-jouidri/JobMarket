@@ -26,7 +26,7 @@
                     </div>
                 </main>
                 <footer class="border-t-1 border-blue-400 p-2 flex justify-between">
-                    <div  class="cursor-pointer px-4 py-2 rounded-[2em] bg-gray-300" @click="$emit('close')">close</div>
+                    <div  class="cursor-pointer px-4 py-2 rounded-[2em] bg-gray-300" @click="close">close</div>
                     <button type="submit" class="px-4 py-2 rounded-[2em] bg-blue-300" @click.prevent="add" >Add</button>
                 </footer>
             </div>
@@ -35,8 +35,7 @@
 </template>
 
 <script setup>
-    import axios from 'axios';
-import { emit } from 'process';
+import axios from 'axios';
 import { ref, watch } from 'vue';
     axios.get('https://jsonplaceholder.typicode.com/todos/1').then((res)=>console.log(res.data))
     let title = ref(null)
@@ -47,15 +46,19 @@ import { ref, watch } from 'vue';
     
    
 
-    // const emit = defineEmits([
-    //     'close',
-    //     'add'
-    // ])
+    let emit = defineEmits([
+        'close',
+        'add'
+    ])
 
     defineProps({
         show : Boolean,
         csrfToken : String
     })
+
+    let close = ()=>{
+        emit('close')
+    }
 
     let add = ()=>{
         axios.post('/dashboard/myjobs',{
@@ -71,7 +74,7 @@ import { ref, watch } from 'vue';
         console.log('reached the emit point')
         // emit('close')
         document.getElementById('form').reset()
-        // emit('add')
+        emit('addItem')
         
     }
 
