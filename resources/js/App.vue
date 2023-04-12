@@ -54,6 +54,7 @@
     <Alert 
         :showAlert="showAlert"
         @close="closeAlert"/>
+    <UpdateModal/>
 </template>
 
 <script setup>
@@ -64,6 +65,7 @@ import MainContent from './components/MainContent.vue'
 import Modal from './components/Modal.vue'
 import DeleteModal from './components/DeleteModal.vue'
 import Alert from './components/Alert.vue'
+import UpdateModal from './components/UpdateModal.vue'
 import { onMounted, ref, watch } from 'vue'
 import axios from 'axios'
 
@@ -71,7 +73,7 @@ let csrfToken = ref(null);
 let showModal = ref(false)
 let data = ref(null)
 let showDeleteModal = ref(false)
-let showAlert = ref(true)
+let showAlert = ref(false)
 let currentJobId = ref(null)
 
 function addItem(){
@@ -122,10 +124,10 @@ let confirmDelete = ()=>{
 
 let close = ()=>{
     showModal.value = false
-    console.log('before',document.getElementById('form').title)
+    console.log('before',document.getElementById('form').title.value)
 
     document.getElementById('form').reset()
-    console.log('after',document.getElementById('form').title)
+    console.log('after',document.getElementById('form').title.value)
 }
 </script>
 
