@@ -73,8 +73,10 @@ import { ref, watch } from 'vue';
         .catch(err=>console.log(err.response.data))
         console.log('reached the emit point')
         // emit('close')
-        document.getElementById('form').reset()
+        // document.getElementById('form').reset()
+        title.value = job_type.value = contract_type.value = status.value = description.value = null
         emit('addItem')
+
         
     }
 

@@ -54,7 +54,7 @@
     <Alert 
         :showAlert="showAlert"
         @close="closeAlert"/>
-    <UpdateModal/>
+    <UpdateModal v-if="showUpdate"/>
 </template>
 
 <script setup>
@@ -78,8 +78,8 @@ let currentJobId = ref(null)
 
 function addItem(){
     showModal.value = false
-    document.getElementById('form').reset()
-    setTimeout(()=>showAlert.value = true,600)
+    // document.getElementById('form').reset()
+    // setTimeout(()=>showAlert.value = true,600)
 }
 
 function displayAddModal(){
