@@ -51,6 +51,7 @@
         :showDeleteModal="showDeleteModal">
 
     </DeleteModal>
+    <Alert/>
 </template>
 
 <script setup>
@@ -60,6 +61,7 @@ import SideBar from './components/SideBar.vue'
 import MainContent from './components/MainContent.vue'
 import Modal from './components/Modal.vue'
 import DeleteModal from './components/DeleteModal.vue'
+import Alert from './components/Alert.vue'
 import { onMounted, ref, watch } from 'vue'
 import axios from 'axios'
 
