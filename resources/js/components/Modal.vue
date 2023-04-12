@@ -2,7 +2,7 @@
     <form v-if="show"  method="post" id="form">
         
         <div class="fixed inset-0 bg-gray-600/75 w-screen grid place-items-center">
-            <div class="bg-white p-6 w-[50vw] max-w-[600px] rounded-xl">
+            <div class="bg-white p-6 w-[50vw] max-h-[450px]  max-w-[600px] rounded-xl">
                 <header>
                     Add item
                 </header>
