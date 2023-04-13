@@ -56,7 +56,13 @@
     <Alert 
         :showAlert="showAlert"
         @close="closeAlert"/>
-    <UpdateModal v-if="showUpdate"/>
+    <UpdateModal 
+        v-if="showUpdate"
+        @close-update-modal="showUpdate = false"
+        :job="currentJob"
+        @confirm-update="confirmUpdate"
+        />
+        current job : {{ currentJob }}
 </template>
 
 <script setup>
@@ -71,13 +77,30 @@ import UpdateModal from './components/UpdateModal.vue'
 import { onMounted, ref, watch } from 'vue'
 import axios from 'axios'
 
+function alertMe(){
+    alert('hi')
+}
+
 let csrfToken = ref(null);
 let showModal = ref(false)
 let data = ref(null)
 let showDeleteModal = ref(false)
 let showAlert = ref(false)
 let currentJobId = ref(null)
+let currentJob = ref(null)
 let showUpdate = ref(false)
+
+function confirmUpdate(id){
+    alert(id)
+    axios.put(`/dashboard/myjobs/${id}`,{
+        "message" : 'hi'
+    })
+        .then(response=>{
+            console.log('inside put')
+            console.log(response.data)
+        })
+        .catch(err=>console.log(err))
+}
 
 function closeDeleteModal(){
     showDeleteModal.value = false
@@ -89,14 +112,18 @@ function addItem(){
     // setTimeout(()=>showAlert.value = true,600)
 }
 
-function showUpdateModal(){
-    alert('clicked update icon')
+function showUpdateModal(id){
+    currentJobId.value = id
+    axios.get(`/dashboard/myjobs/${currentJobId.value}`)
+          .then(response=>{
+            currentJob.value = response.data.job
+            showUpdate.value = true
+            })
+          .catch(err=>console.log(err))
 }
 
 function displayAddModal(){
     showModal.value=true
-    console.log(document.getElementById('form').reset())
-
 }
 
 function handle(id){
@@ -130,6 +157,8 @@ let confirmDelete = ()=>{
         .then(response=>console.log(response.data))
         .catch(err=>console.log(err.response.data))
     showDeleteModal.value = false
+    showAlert.value = true
+    setTimeout(()=>showAlert.value = false , 3000)
 }
 
 

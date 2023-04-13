@@ -30,3 +30,5 @@ Route::get('/login', [loginController::class,'store']);
 Route::post('/dashboard/myjobs',[Controller::class,'test']);
 Route::get('/about',[Controller::class,'index']);
 Route::delete('/dashboard/myjobs/{job}',[Controller::class,'destroy']);
+Route::get('/dashboard/myjobs/{job}',[Controller::class,'show']);
+Route::put('/dashboard/myjobs/{job}',[Controller::class,'update']);

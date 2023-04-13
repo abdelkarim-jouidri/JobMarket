@@ -38,4 +38,12 @@ class Controller extends BaseController
         return response()->json(['success' => true]);
 
     }
+
+    public function show(Job $job){
+        return response()->json(['job'=>$job]);
+    }
+
+    public function update(Request $request,Job $job){
+        return response()->json(['request'=>$request->all()]);
+    }
 }
