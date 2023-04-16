@@ -16,7 +16,7 @@
 
 
         <h1 class="text-xl md:text-2xl font-bold leading-tight mt-12">Create an account to get started !</h1>
-        {{ httpResponse.message }}
+        {{ httpResponse?.message }}
         <form class="mt-6" @submit.prevent="register">
         <div>
             <input type="text" name="" v-model="credentials.name" id="" placeholder="Enter Your Full Name" class="w-full px-4 py-3 rounded-lg bg-gray-200 mt-2 border focus:border-blue-500 focus:bg-white focus:outline-none" autofocus  required>
