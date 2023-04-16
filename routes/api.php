@@ -35,6 +35,6 @@ if (Features::enabled(Features::registration())) {
         ]);
         $request['password'] = bcrypt($request->password);
         User::create($request->except('password_confirmation'));
-        return response()->json(['message'=>'user successfully created']);
+        return response()->json(['message'=>'Your just created an account. Head back to login to enter']);
     });
 }

@@ -81,9 +81,9 @@ const  login = async()=>{
             router.replace({name:'dashboard'})
          })
          .catch((err)=>{
-           
-             
-            if(err.response.status === 422) error.value = err.response.data.errors
+            if(err.response.status === 422) {
+                error.value = err.response.data.errors
+            }
             })
 }
 </script>

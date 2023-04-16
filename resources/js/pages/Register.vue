@@ -16,23 +16,45 @@
 
 
         <h1 class="text-xl md:text-2xl font-bold leading-tight mt-12">Create an account to get started !</h1>
-        {{ httpResponse?.message }}
+        <h1 class="text-center mt-2 text-green-600 font-semibold">
+            {{ httpResponse }}
+        </h1>
         <form class="mt-6" @submit.prevent="register">
         <div>
-            <input type="text" name="" v-model="credentials.name" id="" placeholder="Enter Your Full Name" class="w-full px-4 py-3 rounded-lg bg-gray-200 mt-2 border focus:border-blue-500 focus:bg-white focus:outline-none" autofocus  required>
+            <input type="text" name="" v-model="credentials.name" id="" placeholder="Enter Your Full Name" class="w-full px-4 py-3 rounded-lg bg-gray-200 mt-2 border focus:border-blue-500 focus:bg-white focus:outline-none" autofocus  >
+            <p 
+                v-if="validationErrors.name"
+                class="text-red-600">
+                {{ validationErrors.name[0] }}
+            </p>
         </div>
         <div>
-            <input type="email" name="" v-model="credentials.email" id="" placeholder="Enter Email Address" class="w-full px-4 py-3 rounded-lg bg-gray-200 mt-2 border focus:border-blue-500 focus:bg-white focus:outline-none" autofocus  required>
+            <input type="email" name="" v-model="credentials.email" id="" placeholder="Enter Email Address" class="w-full px-4 py-3 rounded-lg bg-gray-200 mt-2 border focus:border-blue-500 focus:bg-white focus:outline-none" autofocus  >
+            <p 
+                v-if="validationErrors.email"
+                class="text-red-600">
+                {{ validationErrors.email[0] }}
+            </p>
         </div>
 
         <div class="mt-4">
             <input type="password" name="" v-model="credentials.password" id="" placeholder="Enter Password" minlength="6" class="w-full px-4 py-3 rounded-lg bg-gray-200 mt-2 border focus:border-blue-500
-                focus:bg-white focus:outline-none" required>
+                focus:bg-white focus:outline-none" >
+            <p 
+                v-if="validationErrors.password"
+                class="text-red-600">
+                {{ validationErrors.password[0] }}
+            </p>
         </div>
 
         <div class="mt-4">
             <input type="password" name="" v-model="credentials.password_confirmation" id="" placeholder="Confirm your Password" minlength="6" class="w-full px-4 py-3 rounded-lg bg-gray-200 mt-2 border focus:border-blue-500
-                focus:bg-white focus:outline-none" required>
+                focus:bg-white focus:outline-none" >
+            <p 
+                v-if="validationErrors.password_confirmation"
+                class="text-red-600">
+                {{ validationErrors.password_confirmation[0] }}
+            </p>
         </div>
 
       
@@ -62,7 +84,7 @@ import axios from 'axios';
 import { reactive, ref } from 'vue';
 
 let httpResponse = ref(null)
-
+let validationErrors = ref({})
 let credentials = reactive({
     name:'',
     email :'',
@@ -72,8 +94,19 @@ let credentials = reactive({
 })
 
 let register = async()=>{
-    let res = await axios.post('/api/register',credentials)
-    httpResponse.value = res.data
+     await axios.post('/api/register',credentials)
+            .then((response)=>{
+                if(response.status === 200){
+                    console.log(response.data)
+                    httpResponse.value = response.data.message
+                    validationErrors.value = {}
+                }
+            })
+            .catch((err)=>{
+                if(err.response.status === 422){
+                validationErrors.value = err?.response?.data?.errors
+                }
+            })
 }
 
 
