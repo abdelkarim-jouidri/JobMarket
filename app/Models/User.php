@@ -49,4 +49,24 @@ class User extends Authenticatable
     public function assignRole($role){
          $this->roles()->save($role);
     }
+
+    public function isEmployer(){
+        $roles = $this->roles;
+        foreach($roles as $role) {
+            if($role->name=='employer'){
+                return true;
+            }
+        }
+        return false;
+    }
+
+    public function isCandidate(){
+        $roles = $this->roles;
+        foreach($roles as $role) {
+            if($role->name=='candidate'){
+                return true;
+            }
+        }
+        return false;
+    }
 }

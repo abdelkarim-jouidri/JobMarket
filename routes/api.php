@@ -20,6 +20,10 @@ use Laravel\Fortify\Http\Controllers\RegisteredUserController;
 */
 
 Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
+    $user = $request->user();
+    
+    $user->isEmployer = $user->isEmployer();
+    $user->isCandidate = $user->isCandidate();
     return $request->user();
 });
 

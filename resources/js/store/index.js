@@ -32,6 +32,7 @@ export default createStore({
         async authenticate({commit}){
             return await axios.get('/api/user')
                         .then(response=>{
+                            console.log(response.data)
                             commit('SET_AUTHENTICATED', true)
                             commit('SET_USER',response.data)
                         })
