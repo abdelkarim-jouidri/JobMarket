@@ -1,6 +1,7 @@
 
 // ----------------------------------------------------------------------------------------
 import { createApp } from 'vue'
+import store from './store';
 import router from "./router/index.js";
 import axios from 'axios';
 axios.defaults.withCredentials = true
@@ -10,5 +11,7 @@ axios.defaults.headers.common["accept"] = "application/json"
 
 import App from './App.vue'
 
-createApp(App).use(router).mount('#app')
+store.dispatch('authenticate').then(()=>{
+    createApp(App).use(router).use(store).mount('#app')
 
+})

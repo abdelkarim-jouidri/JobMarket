@@ -17,15 +17,16 @@
 
         <h1 class="text-xl md:text-2xl font-bold leading-tight mt-12">Log in to your account</h1>
 
-        <form class="mt-6" action="#" method="POST">
+        <form class="mt-6" @submit.prevent="login">
+            {{ error }}
         <div>
             <label class="block text-gray-700">Email Address</label>
-            <input type="email" name="" id="" placeholder="Enter Email Address" class="w-full px-4 py-3 rounded-lg bg-gray-200 mt-2 border focus:border-blue-500 focus:bg-white focus:outline-none" autofocus  required>
+            <input type="email" v-model="credentials.email" name="" id="" placeholder="Enter Email Address" class="w-full px-4 py-3 rounded-lg bg-gray-200 mt-2 border focus:border-blue-500 focus:bg-white focus:outline-none" autofocus  required>
         </div>
 
         <div class="mt-4">
             <label class="block text-gray-700">Password</label>
-            <input type="password" name="" id="" placeholder="Enter Password" minlength="6" class="w-full px-4 py-3 rounded-lg bg-gray-200 mt-2 border focus:border-blue-500
+            <input type="password" v-model="credentials.password" name="" id="" placeholder="Enter Password" minlength="6" class="w-full px-4 py-3 rounded-lg bg-gray-200 mt-2 border focus:border-blue-500
                 focus:bg-white focus:outline-none" required>
         </div>
 
@@ -54,20 +55,20 @@
 
 <script setup>
 import axios from 'axios';
+import { reactive, ref } from 'vue';
+import { useStore } from 'vuex';
 
+
+let store = useStore()
+let error = ref(null)
+let credentials = reactive({
+    email : '',
+    password : ''
+})
 const  login = async()=>{
-    await axios.get('sanctum/csrf-cookie')
-    // await axios.post('/api/register',{
-    //     email : 'abdelkrim1@gmail.com',
-    //     password : 'secret',
-    //     password_confirmation : 'secret',
-    //     name : 'abdelkrim1'
-    // })
-
-    await axios.post('/api/login',{
-        email : 'abdelkrim12@gmail.com',
-        password : 'secret',
-        
-    })
+    store.dispatch('login', credentials)
+         .catch((err)=>{
+            error.value = err.response.data
+            })
 }
 </script>
