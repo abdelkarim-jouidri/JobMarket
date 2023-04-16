@@ -5,8 +5,7 @@ import Dashboard from "../pages/Dashboard.vue"
 import Login from '../pages/Login.vue'
 import Homey from '../pages/Homey.vue'
 import Register from '../pages/Register.vue'
-import AppExample from '../pages/AppExample.vue'
-// import X from '../pages/X.vue'
+import store from "../store";
 
 const routes = [
     // {
@@ -24,6 +23,13 @@ const routes = [
         path : "/dashboard",
         name : "dashboard",
         component : Dashboard,
+        beforeEnter : (to, from, next)=>{
+            if(!store.getters.authenticated){
+                return next({name:'login'})
+            }
+            return next()
+        }
+        ,
         children : [
             {
                 path : '/dashboard/about',
