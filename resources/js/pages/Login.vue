@@ -63,7 +63,6 @@
 </template>
 
 <script setup>
-import axios from 'axios';
 import { useRouter } from 'vue-router';
 import { reactive, ref } from 'vue';
 import { useStore } from 'vuex';
