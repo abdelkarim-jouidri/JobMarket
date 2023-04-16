@@ -64,10 +64,11 @@
 
 <script setup>
 import axios from 'axios';
+import { useRouter } from 'vue-router';
 import { reactive, ref } from 'vue';
 import { useStore } from 'vuex';
 
-
+let router = useRouter()
 let store = useStore()
 let error = ref({})
 let credentials = reactive({
@@ -76,6 +77,9 @@ let credentials = reactive({
 })
 const  login = async()=>{
     store.dispatch('login', credentials)
+         .then(()=>{
+            router.replace({name:'dashboard'})
+         })
          .catch((err)=>{
            
              
