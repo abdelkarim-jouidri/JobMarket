@@ -30,6 +30,7 @@ class RegisterController extends Controller
      */
     public function store(Request $request)
     {
+        // dd($request);
         $credentials = $request->validate([
             'fullname'=>'required|min:3|string',
             'email'=>'required|email|unique:users',

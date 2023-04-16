@@ -16,19 +16,26 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
+// Route::get('/dashboard/{any?}', function () {
+//     return view('welcome2');
+// });
+
+Route::get('{any?}', function () {
     return view('welcome2');
 });
 
+// Route::get('/login', function () {
+//     return view('welcome2');
+// });
 
 
 
-Route::get('/register', [RegisterController::class,'create'])->middleware('guest');
-Route::post('/register', [RegisterController::class,'store'])->middleware('guest');;
-Route::get('/login', [loginController::class,'store']);
+// Route::get('/register', [RegisterController::class,'create'])->middleware('guest');
+// Route::post('/register', [RegisterController::class,'store'])->middleware('guest');;
+// // Route::get('/login', [loginController::class,'create']);
 
-Route::post('/dashboard/myjobs',[Controller::class,'test']);
-Route::get('/about',[Controller::class,'index']);
-Route::delete('/dashboard/myjobs/{job}',[Controller::class,'destroy']);
-Route::get('/dashboard/myjobs/{job}',[Controller::class,'show']);
-Route::put('/dashboard/myjobs/{job}',[Controller::class,'update']);
+// Route::post('/dashboard/myjobs',[Controller::class,'test']);
+// Route::get('/about',[Controller::class,'index']);
+// Route::delete('/dashboard/myjobs/{job}',[Controller::class,'destroy']);
+// Route::get('/dashboard/myjobs/{job}',[Controller::class,'show']);
+// Route::put('/dashboard/myjobs/{job}',[Controller::class,'update']);
