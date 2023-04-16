@@ -18,16 +18,25 @@
         <h1 class="text-xl md:text-2xl font-bold leading-tight mt-12">Log in to your account</h1>
 
         <form class="mt-6" @submit.prevent="login">
-            {{ error }}
         <div>
             <label class="block text-gray-700">Email Address</label>
-            <input type="email" v-model="credentials.email" name="" id="" placeholder="Enter Email Address" class="w-full px-4 py-3 rounded-lg bg-gray-200 mt-2 border focus:border-blue-500 focus:bg-white focus:outline-none" autofocus  required>
+            <input type="email" v-model="credentials.email" name="" id="" placeholder="Enter Email Address" class="w-full px-4 py-3 rounded-lg bg-gray-200 mt-2 border focus:border-blue-500 focus:bg-white focus:outline-none" autofocus  >
+            <p 
+                v-if="error.email"
+                class="text-red-600">
+                {{ error.email[0] }}
+            </p>
         </div>
 
         <div class="mt-4">
             <label class="block text-gray-700">Password</label>
             <input type="password" v-model="credentials.password" name="" id="" placeholder="Enter Password" minlength="6" class="w-full px-4 py-3 rounded-lg bg-gray-200 mt-2 border focus:border-blue-500
-                focus:bg-white focus:outline-none" required>
+                focus:bg-white focus:outline-none" >
+                <p 
+                v-if="error.password"
+                class="text-red-600">
+                {{ error.password[0] }}
+            </p>
         </div>
 
         
@@ -60,7 +69,7 @@ import { useStore } from 'vuex';
 
 
 let store = useStore()
-let error = ref(null)
+let error = ref({})
 let credentials = reactive({
     email : '',
     password : ''
@@ -68,7 +77,9 @@ let credentials = reactive({
 const  login = async()=>{
     store.dispatch('login', credentials)
          .catch((err)=>{
-            error.value = err.response.data
+           
+             
+            if(err.response.status === 422) error.value = err.response.data.errors
             })
 }
 </script>
