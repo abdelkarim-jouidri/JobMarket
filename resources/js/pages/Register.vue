@@ -20,6 +20,26 @@
             {{ httpResponse }}
         </h1>
         <form class="mt-6" @submit.prevent="register">
+            <div class="-space-y-px rounded-md shadow-sm flex flex-col gap-5">
+                            <div class="flex gap-4 items-center justify-center ">
+                                <span class=" font-bold mr-2 text-[#3b82f6] " id="candidate">Candidat</span>
+                                <input 
+                                    v-model="credentials.checkbox"
+                                    type="checkbox" name="original_checkbox" id="check"  class="hidden peer">
+                                <!-- <input type="checkbox" class="focus:outline peer hidden " name="account-type" value="type" id="check"> -->
+                                <label for="check" class="relative flex items-center text-[40px] peer-checked:text-red-600 
+                                                before:content-[''] before:w-[1.1em] before:h-[.3em] before:bg-[#dbeafe] 
+                                                before:rounded-[1em]  after:content-[''] after:w-[.5em] after:-left-[.3em]
+                                                after:h-[.5em] after:bg-[#3b82f6] after:rounded-[.7em]  after:absolute 
+                                                peer-checked:after:bg-[#3b82f6] peer-checked:after:translate-x-[230%] 
+                                                before:transition-[1s] after:transition-[1s]
+                                                ">
+                                                
+                                </label>
+                                <span class=" font-bold text-[#ddd] " id="Recruteur">Recruteur</span>
+
+                             </div>
+            </div>
         <div>
             <input type="text" name="" v-model="credentials.name" id="" placeholder="Enter Your Full Name" class="w-full px-4 py-3 rounded-lg bg-gray-200 mt-2 border focus:border-blue-500 focus:bg-white focus:outline-none" autofocus  >
             <p 
@@ -86,6 +106,7 @@ import { reactive, ref } from 'vue';
 let httpResponse = ref(null)
 let validationErrors = ref({})
 let credentials = reactive({
+    checkbox : false,
     name:'',
     email :'',
     password : '',
@@ -108,6 +129,8 @@ let register = async()=>{
                 }
             })
 }
+
+
 
 
 </script>

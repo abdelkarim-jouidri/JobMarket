@@ -16,10 +16,8 @@ class RolesSeeder extends Seeder
     public function run()
     {
         $roles = [
-            'admin',
             'employer',
             'candidate',
-            'guest'
         ];
         
         Role::insert(array_map(function ($role) {

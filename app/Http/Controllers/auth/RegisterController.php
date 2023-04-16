@@ -30,22 +30,25 @@ class RegisterController extends Controller
      */
     public function store(Request $request)
     {
-        // dd($request);
         $credentials = $request->validate([
-            'fullname'=>'required|min:3|string',
+            'name'=>'required|min:3|string',
             'email'=>'required|email|unique:users',
             'password'=>'required|min:5|confirmed',
             
         ]);
 
         $credentials['password'] = Hash::make($request->password);
-        // dd($credentials);
-        $role = Role::whereName($request->checkbox)->first();
+        $role = $request->checkbox ? 'employer' : 'candidate';
+        
+        $role = Role::whereName($role)->first();
+        
         $user = User::create($credentials);
         $user->assignRole($role);
 
-        Auth::login($user);
-        return redirect('/');
+        return response()->json([
+            'user'=>$user,
+            'message'=>'Your just created an account. Head back to login to enter'
+        ]);
     }
 
     /**

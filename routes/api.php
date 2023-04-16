@@ -5,6 +5,7 @@ use Illuminate\Http\Request;
 use Laravel\Fortify\Features;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Api\JobsController;
+use App\Http\Controllers\auth\RegisterController;
 use Laravel\Fortify\Http\Controllers\RegisteredUserController;
 
 /*
@@ -27,14 +28,5 @@ Route::get('/jobs',[JobsController::class,'index']);
 if (Features::enabled(Features::registration())) {
     
 
-    Route::post('/register', function(Request $request){
-        $request->validate([
-            'name'=>'required',
-            'email'=>'required|email|unique:users',
-            'password'=>'required|confirmed'
-        ]);
-        $request['password'] = bcrypt($request->password);
-        User::create($request->except('password_confirmation'));
-        return response()->json(['message'=>'Your just created an account. Head back to login to enter']);
-    });
+    Route::post('/register', [RegisterController::class,'store']);
 }
