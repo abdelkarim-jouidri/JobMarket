@@ -16,13 +16,17 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+// Route::get('/dashboard/{any?}', function () {
+//     return view('welcome2');
+// });
 
-// for spa routes
-Route::get('/{slug1}/{slug2}', function () {
+Route::get('{any?}/{slug?}', function () {
     return view('welcome2');
-})->where(['slug1' => '.*', 'slug2' => '.*']);
+});
 
-
+// Route::get('/login', function () {
+//     return view('welcome2');
+// });
 
 
 

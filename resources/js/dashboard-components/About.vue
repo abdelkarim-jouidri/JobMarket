@@ -1,7 +1,8 @@
 <template>
             <button class="bg-blue-300 px-6 py-2 hover:bg-blue-500 rounded-lg" @click="$emit('add')">Add</button>
-
-    <div class="-my-2 overflow-x-auto sm:-mx-6 lg:-mx-8">
+    <div 
+        v-if="jobs.length"
+        id="main-content" class="-my-2 overflow-x-auto sm:-mx-6 lg:-mx-8">
         <div class="py-2 align-middle inline-block min-w-full sm:px-6 lg:px-8">
             <div class="shadow overflow-hidden border-b border-gray-200 sm:rounded-lg">
                 <table class="min-w-full divide-y divide-gray-200">
@@ -29,28 +30,28 @@
                     </tr>
                 </thead>
                 <tbody class="bg-white divide-y divide-gray-200">
-                    <tr v-for="item in data">
+                    <tr v-for="job in jobs">
                         
                         <td class="px-6 py-4 whitespace-nowrap">
-                            <div class="text-sm font-medium text-gray-900">{{item.title}}</div>
+                            <div class="text-sm font-medium text-gray-900">{{job.title}}</div>
                         </td>
                         <td class="px-6 py-4 whitespace-nowrap">
-                            <div class="text-sm font-medium text-gray-900">{{item.jobType}}</div>
+                            <div class="text-sm font-medium text-gray-900">{{job.jobType}}</div>
                         </td>
                         <td class="px-6 py-4 whitespace-nowrap">
-                            <div class="text-sm font-medium text-gray-900">{{item.contractType}}</div>
+                            <div class="text-sm font-medium text-gray-900">{{job.contractType}}</div>
                         </td>
                         <td class="px-6 py-4 whitespace-nowrap">
-                            <div class="text-sm font-medium text-gray-900">{{item['description']}}</div>
+                            <div class="text-sm font-medium text-gray-900">{{job['description']}}</div>
                         </td>
                         <td class="px-6 py-4 whitespace-nowrap">
-                            <span class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-green-100 " :class="{'bg-green-800 text-green-100': item.status=='opened' , 'bg-red-800 text-red-400' : item.status=='closed'}">
-                                {{item['status']}}
+                            <span class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-green-100 " :class="{'bg-green-800 text-green-100': job.status=='opened' , 'bg-red-800 text-red-400' : job.status=='closed'}">
+                                {{job['status']}}
                             </span>
                         </td>
                         <td class="px-6 py-4 whitespace-nowrap text-right text-sm font-medium flex gap-4">
                             <a 
-                                @click="$emit('showUpdate',item.id)"
+                                @click="$emit('showUpdate',job.id)"
                                 href="#" class="text-indigo-600 hover:text-indigo-900">
                                 <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-6 h-6" style="height : 22px;">
                                     <path strokeLinecap="round" strokeLinejoin="round" d="M16.862 4.487l1.687-1.688a1.875 1.875 0 112.652 2.652L10.582 16.07a4.5 4.5 0 01-1.897 1.13L6 18l.8-2.685a4.5 4.5 0 011.13-1.897l8.932-8.931zm0 0L19.5 7.125M18 14v4.75A2.25 2.25 0 0115.75 21H5.25A2.25 2.25 0 013 18.75V8.25A2.25 2.25 0 015.25 6H10" />
@@ -59,7 +60,7 @@
                             </a>
                         
                             <div 
-                                @click.prevent="$emit('delete',item.id)"
+                                @click.prevent="$emit('delete',job.id)"
                                 href="#" class="text-red-600 hover:text-red-900">
                                 <svg 
                                     xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-6 h-6" style="height : 22px;">
@@ -76,14 +77,29 @@
             </div>
         </div>
     </div>
+
+    <div 
+        v-else
+        id="loader">
+        <div
+            class="inline-block h-8 w-8 animate-spin rounded-full border-4 border-solid border-current border-r-transparent align-[-0.125em] motion-reduce:animate-[spin_1.5s_linear_infinite]"
+            role="status">
+            <span class="!absolute !-m-px !h-px !w-px !overflow-hidden !whitespace-nowrap !border-0 !p-0 ![clip:rect(0,0,0,0)]">Loading...</span>
+        </div>
+    </div>
     
     
 
 </template>
 
 <script setup>
-defineProps({
-    data : Object
-})
+import { onMounted } from 'vue';
+import useJobs from '../api/useJobs';
+
+
+
+const {jobs, fetchJobs} = useJobs()
+onMounted(fetchJobs)
+console.log('jobs',jobs)
 
 </script>
