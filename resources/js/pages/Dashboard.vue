@@ -1,5 +1,7 @@
 <template>
-    <NavBar :user="user"></NavBar>
+    <NavBar 
+    @logout="logout"
+    :user="user"></NavBar>
     <div class="flex container mx-auto overflow-x-scroll">
         <SideBar>
             
@@ -76,7 +78,9 @@ import Alert from '../dashboard-components/Alert.vue'
 import UpdateModal from '../dashboard-components/UpdateModal.vue'
 import { onMounted, ref, watch } from 'vue'
 import axios from 'axios'
+import { useStore } from 'vuex'
 
+let store = useStore()
 
 
 let user = ref(null)

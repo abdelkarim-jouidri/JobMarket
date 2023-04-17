@@ -67,6 +67,10 @@ import { useRouter } from 'vue-router';
 import { reactive, ref } from 'vue';
 import { useStore } from 'vuex';
 
+import useAuth from '../auth/useAuth';
+
+// const {login} = useAuth()
+
 let router = useRouter()
 let store = useStore()
 let error = ref({})

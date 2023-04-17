@@ -75,7 +75,9 @@
                     <!-- Active: "bg-gray-100", Not Active: "" -->
                     <a href="#" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-700 hover:text-white" role="menuitem" tabindex="-1" id="user-menu-item-0">{{ user?.fullname }}</a>
                     <a href="#" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-700 hover:text-white" role="menuitem" tabindex="-1" id="user-menu-item-1">Settings</a>
-                    <a href="#" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-700 hover:text-white" role="menuitem" tabindex="-1" id="user-menu-item-2">Sign out</a>
+                    <a 
+                    @click="logout"
+                    href="#" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-700 hover:text-white" role="menuitem" tabindex="-1" id="user-menu-item-2">Sign out</a>
                 </div>
                 </div>
             </div>
@@ -96,6 +98,22 @@
 </template>
 
 <script setup>
+import { useStore } from 'vuex';
+import { useRouter } from 'vue-router';
+let router = useRouter()
+let store = useStore()
+
+let logout = async ()=> {
+    alert('clickde')
+    store.dispatch('logout')
+            .then(()=>{
+                router.replace({name:'homey'})
+            })
+            .catch((err)=>{
+                console.log(err.response)
+            })
+}
+
  defineProps({
     user:Object
  })

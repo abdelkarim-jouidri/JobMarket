@@ -47,6 +47,16 @@ export default createStore({
             await axios.post('/api/login',credentials)
 
             dispatch('authenticate')
+        },
+
+        async logout(){
+            try{
+                await axios.post('/api/logout')
+                this.commit('SET_AUTHENTICATED',false)
+                this.commit('SET_USER',null)
+            }catch(err){
+                console.log(err.response)
+            }
         }
     }
 })

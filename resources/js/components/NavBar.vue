@@ -75,7 +75,9 @@
                     <!-- Active: "bg-gray-100", Not Active: "" -->
                     <a href="#" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-700 hover:text-white" role="menuitem" tabindex="-1" id="user-menu-item-0">{{ user?.fullname }}</a>
                     <a href="#" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-700 hover:text-white" role="menuitem" tabindex="-1" id="user-menu-item-1">Settings</a>
-                    <a href="#" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-700 hover:text-white" role="menuitem" tabindex="-1" id="user-menu-item-2">Sign out</a>
+                    <a 
+                        @click="$emit('logout')"
+                        href="#" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-700 hover:text-white" role="menuitem" tabindex="-1" id="user-menu-item-2">Sign out</a>
                 </div>
                 </div>
             </div>
@@ -96,11 +98,32 @@
 </template>
 
 <script setup>
+import { useStore } from 'vuex';
+
+let store = useStore()
+
+console.log(store)
  defineProps({
     user:Object
  })
 
+ const  logout = ()=>{
+    store.dispatch('logout')
+         .then(()=>{
+            router.replace({name:'homey'})
+         })
+         .catch((err)=>{
+            if(err.response.status === 422) {
+                console.log(err.response)
+            }
+            })
+}
+
+
+
  let toggleMenu = ()=> {
+    alert('yes')
+    console.log('yes')
     document.getElementById('user-menu').classList.toggle('hidden')
  }
 </script>
