@@ -13,4 +13,19 @@ class JobsController extends Controller
     {
         return JobResource::collection(Job::get());
     }
+
+    public function store(Request $request){
+        Job::create($request->all());
+        return response()->json(['response'=>'successfully added']);
+    }
+
+    public function show(Job $job)
+    {
+        return response()->json(['job'=>$job]);
+    }
+
+    public function update(Request $request, Job $job){
+        $job->update($request->all());
+        return response()->json(['message'=>'Job has been successfully updated']);
+    }
 }

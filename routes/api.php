@@ -28,7 +28,9 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 });
 
 Route::get('/jobs',[JobsController::class,'index']);
-Route::get('/jobs/{job}',[JobsController::class,'index']);
+Route::post('/jobs',[JobsController::class,'store']);
+Route::get('/jobs/{job}',[JobsController::class,'show']);
+Route::put('/jobs/{job}',[JobsController::class,'update']);
 
 if (Features::enabled(Features::registration())) {
     

@@ -61,7 +61,7 @@
     <UpdateModal 
         v-if="showUpdate"
         @close-update-modal="showUpdate = false"
-        :job="currentJob"
+        :id="currentJobId"
         @confirm-update="confirmUpdate"
         />
         current job : {{ currentJob }}
@@ -82,6 +82,7 @@ import { useStore } from 'vuex'
 
 let store = useStore()
 
+const {fetchJob} = useJobs()
 
 let user = ref(null)
 let csrfToken = ref(null);
@@ -108,14 +109,17 @@ function confirmUpdate(id){
 
 
 
-function showUpdateModal(id){
+async function showUpdateModal (id){
     currentJobId.value = id
-    axios.get(`/dashboard/myjobs/${currentJobId.value}`)
-          .then(response=>{
-            currentJob.value = response.data.job
-            showUpdate.value = true
-            })
-          .catch(err=>console.log(err))
+    showUpdate.value = true
+    let res = await fetchJob(id)
+    currentJob.value = res.data
+    // axios.get(`/dashboard/myjobs/${currentJobId.value}`)
+    //       .then(response=>{
+    //         currentJob.value = response.data.job
+    //         showUpdate.value = true
+    //         })
+    //       .catch(err=>console.log(err))
 }
 
 function displayAddModal(){

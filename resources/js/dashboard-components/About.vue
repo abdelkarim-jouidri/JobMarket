@@ -31,7 +31,6 @@
                 </thead>
                 <tbody class="bg-white divide-y divide-gray-200">
                     <tr v-for="job in jobs">
-                        
                         <td class="px-6 py-4 whitespace-nowrap">
                             <div class="text-sm font-medium text-gray-900">{{job.title}}</div>
                         </td>
@@ -58,7 +57,6 @@
                                 </svg>
 
                             </a>
-                        
                             <div 
                                 @click.prevent="$emit('delete',job.id)"
                                 href="#" class="text-red-600 hover:text-red-900">
@@ -100,6 +98,6 @@ import useJobs from '../api/useJobs';
 
 const {jobs, fetchJobs} = useJobs()
 onMounted(fetchJobs)
-console.log('jobs',jobs)
+console.log('jobs from about',jobs)
 
 </script>

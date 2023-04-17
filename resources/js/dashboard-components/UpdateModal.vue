@@ -6,8 +6,9 @@
                         <!-- Modal header -->
                         <div class="flex justify-between items-center pb-4 mb-4 rounded-t border-b sm:mb-5 dark:border-gray-600">
                             <h3 class="text-lg font-semibold text-gray-900 dark:text-white">
-                                Update Job
+                                Update Job {{ id }}
                             </h3>
+
                             <button 
                                 @click="sendCloseUpdateModalEvent"    
                                 type="button" class="text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm p-1.5 ml-auto inline-flex items-center dark:hover:bg-gray-600 dark:hover:text-white" data-modal-toggle="updateProductModal">
@@ -16,19 +17,20 @@
                             </button>
                         </div>
                         <!-- Modal body -->
-                        <form action="#">
+                        <form action="#" @submit.prevent="update(newJob)">
+                            {{ newJob }}
                             <div class="grid gap-4 mb-4 sm:grid-cols-2">
                                 <div>
                                     <label for="title" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Title</label>
-                                    <input type="text" v-model="job.title" title="title" id="title"  class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500" >
+                                    <input type="text"  v-model="newJob.title" title="title" id="title"  class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500" >
                                 </div>
                                 <div>
                                     <label for="job_type" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Job Type</label>
-                                    <input type="text" :value="job.job_type" name="job_type" id="job-type"  class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500" >
+                                    <input type="text" v-model="newJob.job_type"  name="job_type" id="job-type"  class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500" >
                                 </div>
                                 <div>
                                     <label for="contract_type" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Contract Type</label>
-                                    <input type="text"  :value="job.contract_type" name="contract_type" id="contract-type" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500" >
+                                    <input type="text" v-model="newJob.contract_type"  name="contract_type" id="contract-type" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500" >
                                 </div>
                                 <div>
                                     <label for="status" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Status</label>
@@ -40,17 +42,18 @@
                                 </div>
                                 <div class="sm:col-span-2">
                                     <label for="description" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Description</label>
-                                    <textarea id="description" rows="5" class="block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-primary-500 focus:border-primary-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500" >{{ job.description }}</textarea>                    
+                                    <textarea v-model="newJob.description" id="description" rows="5" class="block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-primary-500 focus:border-primary-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500" >
+                                        {{ newJob.description }}
+                                    </textarea>                    
                                 </div>
                             </div>
                             <div class="flex items-center space-x-4 justify-center">
                                 <button 
-                                    @click.prevent="sendConfirmUpdateEvent"
+                                    type="submit"
                                     class="bg-orange-300 px-4 py-2 rounded-2xl hover:bg-orange-400 border-gray-500 border-2">
                                         Update
                                 </button>
                             </div>
-                            {{ job }}
                         </form>
                     </div>
                 </div>
@@ -59,14 +62,30 @@
 
 <script setup>
 import axios from 'axios';
-import { reactive } from 'vue';
+import { reactive,ref } from 'vue';
+import { onMounted } from 'vue';
+import { getCurrentInstance } from 'vue';
+import useJobs from '../api/useJobs';
 
-    defineProps({
-        job : Object,
-        show : Boolean
-    })
+const {job,fetchJob, updateJob, fetchJobs} = useJobs()
 
-    // let newJob = reactive({...job})
+const newJob = reactive(job)
+
+const props = defineProps({
+    id : Number
+})
+
+// let Id = ref(props.id)
+
+console.log('from update modal',job.value)
+onMounted(fetchJob(props.id))
+
+onMounted(()=>{
+    // console.log(this.id)
+})
+
+
+
 
 const emit = defineEmits(['confirmUpdate', 'closeUpdateModal'])
 
@@ -79,6 +98,12 @@ let sendConfirmUpdateEvent = () => {
     // emit('confirmUpdate',job.id)
 }
 
+const update = async(job)=>{
+    alert('clicked')
+    let res = await updateJob(job);
+    console.log(res)
+    fetchJobs()
+    this.$forceUpdate()
+}
 
-// setTimeout(()=>console.log(job.title),1000)
 </script>
