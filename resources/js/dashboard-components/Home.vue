@@ -1,8 +1,16 @@
 
 <script setup>
 
+defineProps({
+    data : Object
+})
+
+// console.log(data)
+
+
 </script>
 
 <template>
-    <h1>this is the home page</h1>
+    <h1>{{ data }}</h1>
+    <p>HIIIIIIIIIIIIIIIII</p>
 </template>

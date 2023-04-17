@@ -85,4 +85,5 @@
 defineProps({
     data : Object
 })
+
 </script>

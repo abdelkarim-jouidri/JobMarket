@@ -16,17 +16,13 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-// Route::get('/dashboard/{any?}', function () {
-//     return view('welcome2');
-// });
 
-Route::get('{any?}', function () {
+// for spa routes
+Route::get('/{slug1}/{slug2}', function () {
     return view('welcome2');
-});
+})->where(['slug1' => '.*', 'slug2' => '.*']);
 
-// Route::get('/login', function () {
-//     return view('welcome2');
-// });
+
 
 
 
@@ -34,8 +30,8 @@ Route::get('{any?}', function () {
 // Route::post('/register', [RegisterController::class,'store'])->middleware('guest');;
 // // Route::get('/login', [loginController::class,'create']);
 
-// Route::post('/dashboard/myjobs',[Controller::class,'test']);
+Route::post('/api/dashboard/myjobs',[Controller::class,'test']);
 // Route::get('/about',[Controller::class,'index']);
 // Route::delete('/dashboard/myjobs/{job}',[Controller::class,'destroy']);
 // Route::get('/dashboard/myjobs/{job}',[Controller::class,'show']);
-// Route::put('/dashboard/myjobs/{job}',[Controller::class,'update']);
+Route::put('/api/dashboard/myjobs/{job}',[Controller::class,'update']);

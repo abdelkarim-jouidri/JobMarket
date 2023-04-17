@@ -2,18 +2,22 @@
     <header>
         <nav class="bg-white border-gray-200 px-4 lg:px-6 py-2.5 dark:bg-gray-800">
             <div class="flex flex-wrap justify-between items-center mx-auto max-w-screen-xl">
-                <a href="https://flowbite.com" class="flex items-center">
-                    <img src="https://flowbite.com/docs/images/logo.svg" class="mr-3 h-6 sm:h-9" alt="Flowbite Logo" />
-                    <span class="self-center text-xl font-semibold whitespace-nowrap dark:text-white">Flowbite</span>
-                </a>
+                <svg class="" id="kpypeQFYgj" viewBox="0 0 349.99999999999994 158.35472050069157" height="158.35472050069157" width="349.99999999999994" style="stroke : black ;width: 175px; height: 73px; z-index: 0; cursor: pointer; transform: translateY(10px)"><defs id="SvgjsDefs1391"></defs><g id="SvgjsG1392" featurekey="nameFeature-0" transform="matrix(2.247041314619483,0,0,2.247041314619483,11.671179210057844,-33.256211884957466)" fill="#118df0" style="fill: white;"><path d="M6.8 40.36 c-0.96 -0.4 -1.92 -1.96 -1.92 -3.68 c0 -2.12 0.76 -6.88 4.64 -12.52 c3.64 -5.32 8 -9.36 12.56 -9.36 c6.04 0 2.36 12.44 -1.56 22.36 c1.08 -0.16 1.88 -0.36 2.4 -0.68 c0.68 -0.4 0.8 0.08 0.32 0.44 c-0.64 0.48 -1.6 0.84 -3.08 1.12 l-0.28 0.72 c-3.88 9.52 -11.24 24.48 -18.8 24.48 c-6 0 -9.96 -7.92 -1.08 -16.52 c5.92 -5.72 15.36 -8.64 19.4 -9.36 c6.36 -14.88 5.92 -21.6 2.56 -21.6 c-3.24 0 -8.52 4.68 -11.36 8.88 c-3.24 4.8 -5 9.8 -5 12.16 c0 1.84 1 2.68 1.64 3.04 c0.64 0.44 0.16 0.8 -0.44 0.52 z M0.96 62.519999999999996 c5.28 0 11.28 -8.84 18.04 -24.28 c-5.04 0.96 -12.8 3.76 -18.32 9.08 c-7.36 7.16 -4.36 15.2 0.28 15.2 z M23.356 38.36 c0.32 -0.68 0.72 -1.28 1.08 -1.76 c-0.2 -0.2 -0.4 -0.4 -0.52 -0.68 c-0.72 -1.52 0.6 -3.32 2.36 -3.32 s2.84 1.64 2.84 4.16 l0 0.12 c0.16 0 0.32 0 0.52 -0.04 c2 -0.16 5.72 -1.12 7.4 -1.72 c0.28 -0.12 0.48 0.32 0.28 0.4 c-0.88 0.36 -5.44 1.84 -7.8 2.04 c-0.16 0.04 -0.32 0.04 -0.44 0.04 c-0.36 3.84 -3.2 6.96 -5.04 6.96 c-1.8 0 -2.28 -3.08 -0.68 -6.2 z M23.876 43.84 c1.8 0 3.96 -2.72 4.32 -6.24 c-1.08 0 -2.24 -0.16 -3.08 -0.56 c-0.32 0.44 -0.68 0.96 -0.96 1.48 c-1.52 2.96 -1.04 5.32 -0.28 5.32 z M26.556 35.28 c0 0.08 -0.44 0.48 -0.96 1.12 c0.72 0.32 1.68 0.48 2.68 0.48 l0 -0.4 c0 -2.08 -1 -3.2 -2.12 -3.2 c-1.08 0 -2.08 1.04 -1.52 2.24 c0.08 0.2 0.2 0.32 0.32 0.48 c0.6 -0.64 1.12 -1 1.24 -1 c0.24 0 0.36 0.12 0.36 0.28 z M48.672 34.88 c0.56 0 0.76 0.44 0.16 0.52 c-1.72 0.28 -9.16 1.8 -11.72 3 c-0.12 0.4 -0.36 0.88 -0.6 1.32 c-1.56 2.6 -3.88 2.96 -4.36 2.24 c-0.32 -0.52 0.76 -2.28 3.92 -3.72 c0.04 0 0.08 -0.04 0.16 -0.08 c0.28 -0.72 0.36 -1.36 0.16 -1.68 s-0.88 -0.08 -1.92 0.84 c-0.96 0.88 -1.92 1.72 -2.36 1.64 c-0.6 -0.08 -0.28 -1.52 -0.12 -2.12 c1.28 -4.52 2.76 -10.64 4.68 -16.56 c0.8 -2.48 1.36 -3.64 1.92 -3.16 c0.36 0.36 0.28 1.56 -0.32 2.68 c-0.64 1.28 -0.84 2.12 -1.12 2.88 c-2.32 6.68 -3.04 9.8 -4.48 14.16 c-0.08 0.32 -0.44 1.28 -0.24 1.28 c0.16 0 0.92 -0.68 1.6 -1.36 c1.36 -1.32 2.44 -1.64 2.96 -1.24 c0.4 0.28 0.56 1.08 0.32 2.2 c3.84 -1.48 9.96 -2.84 11.36 -2.84 z M35.672 39.36 l0.12 -0.28 c-1.64 0.96 -3.04 2.04 -2.84 2.4 c0.2 0.28 1.92 -0.64 2.72 -2.12 z M77.344 54.64 c-0.12 0.44 -0.68 0.6 -0.52 -0.12 s3.72 -13.8 5.12 -22 c1.4 -8.24 2.64 -15.56 1.2 -15.56 c-1.4 0 -5.36 3.12 -11.64 11.68 c-6.28 8.64 -8 12.72 -8.96 12.72 c-1.72 0 -0.44 -4.56 0 -10.08 c0.4 -4.88 1.32 -10.92 -0.2 -10.92 c-1.32 0 -5 4.88 -6.8 12 c-1.6 6.44 -1.8 11.88 -0.8 13 c0.68 0.8 0.12 1.08 -0.48 0.36 c-1.28 -1.64 -1.08 -8.04 0.4 -13.64 c1.6 -5.8 5.28 -12.52 7.56 -12.52 c2.48 0 1.32 8.92 1.04 11.72 c-0.32 3.2 -1.52 9.2 -0.68 9.2 c0.08 0 3.52 -6.32 8.08 -12.28 c4.56 -6.04 9.8 -12.36 12.44 -12.36 c2.4 0 1.68 6.36 -0.12 16.68 c-1.72 10 -4.84 19.24 -5.64 22.12 z M91.62 40.2 c2.8 0 10.92 -3.76 13.36 -5.08 c0.2 -0.12 1.04 -0.08 0.36 0.36 c-2.64 1.72 -11.12 5.56 -13.76 5.56 c-1.96 0 -2.52 -1.16 -2.52 -2 s0.16 -1.24 0.08 -1.32 c-0.12 -0.12 -0.36 -0.08 -1.64 0.6 c-1.16 0.68 -2.44 1.2 -2.84 1.2 c-0.56 0 -0.96 -0.36 -0.96 -0.6 c0 -0.76 0.48 -1.8 2 -2.92 c1.28 -1 2.08 -1.2 2.76 -1.2 c0.92 0 1.48 1.44 1.08 1.44 s-0.52 -0.8 -0.96 -0.8 c-0.4 0 -1.2 0.32 -2.32 1.08 c-1.04 0.68 -1.84 1.84 -1.84 2.16 c0 0.08 0.04 0.12 0.16 0.12 c0.36 0 1.04 -0.28 2.16 -0.84 c1.52 -0.72 2.52 -1.28 3 -1.28 c0.16 0 0.52 0.08 0.52 0.36 c0 0.32 -0.4 1.04 -0.4 1.96 c0 0.68 0.72 1.2 1.76 1.2 z M104.896 41.24 c-0.88 -0.12 -1.48 -1.04 -0.52 -3.04 c0.4 -0.88 0.68 -1.4 0.68 -1.6 c0 -0.16 -0.12 -0.28 -0.96 -0.6 c-1.08 -0.4 -1.24 -1.44 -1.04 -2.24 c0.36 -1.44 1.52 -1.88 2.12 -1.76 c0.32 0.08 0.76 0.52 0.72 0.84 c-0.12 1.04 -0.76 1.72 -1.84 2.32 c0.08 0.08 0.2 0.16 0.36 0.2 c1.48 0.6 1.68 0.72 1.68 1.08 c0 0.32 -0.44 0.96 -0.96 2.08 c-0.6 1.24 -0.64 1.76 0.04 1.84 c2.24 0.28 7.96 -1.52 12.16 -5.12 c0.4 -0.36 0.88 -0.08 0.52 0.24 c-4.24 4.04 -10.92 6.04 -12.96 5.76 z M103.856 33.96 c-0.08 0.24 -0.12 0.48 -0.04 0.72 c1.16 -0.72 1.44 -1.32 1.48 -1.88 c0 -0.08 0 -0.12 -0.08 -0.16 c-0.4 -0.12 -1.16 0.68 -1.36 1.32 z M121.132 32.519999999999996 c-0.2 0 -0.32 -0.16 -0.4 -0.16 s-2.32 1.16 -3.64 1.92 c-0.84 0.52 -1.76 1.04 -2.24 1.48 c-0.08 0.28 -0.12 0.56 -0.16 0.84 c0.76 0.28 3.16 0.16 4.96 0 c2.52 -0.24 5.8 -0.76 8.4 -1.4 c0.6 -0.12 0.44 0.6 0.12 0.68 c-2.2 0.72 -5.84 1.24 -8.48 1.52 c-2.08 0.2 -3.96 0.24 -5.16 0.08 l-0.4 2.28 c-0.6 3.64 -0.24 4.72 -0.68 4.72 c-0.48 0 -0.4 -1.96 -0.08 -4.96 c0.08 -0.72 0.16 -1.44 0.28 -2.2 c-0.36 -0.12 -0.56 -0.28 -0.64 -0.44 c-0.12 -0.36 0.12 -0.88 0.96 -1.6 c0.32 -2.08 0.84 -4.72 1.72 -8.44 c1.96 -8.64 2.92 -10.76 3.6 -10.76 c0.32 0 0.44 0.92 0.32 1.28 c-0.12 0.48 -0.64 1.32 -1.08 2.28 c-0.12 0.2 -1.16 4.16 -1.92 7.72 c-0.56 2.48 -1.04 4.88 -1.48 7.04 c0.2 -0.16 0.44 -0.32 0.72 -0.48 c2.08 -1.36 4.92 -2.68 5.16 -2.68 c0.28 0 0.6 0.48 0.6 0.68 s-0.16 0.6 -0.48 0.6 z M128.688 40.48 c-2.08 0.16 -3 -1.6 -2.16 -3.44 c0.8 -1.84 2.4 -2.56 3.24 -2.4 c0.76 0.12 1 0.76 0.68 1.68 c-0.48 1.24 -1.96 2.12 -3.4 2.6 c0.16 0.56 0.68 0.84 1.4 0.8 c1.84 -0.16 4.4 -1.44 11.64 -4.6 c0.52 -0.24 0.64 0.28 0.32 0.4 c-6.08 2.68 -9.52 4.8 -11.72 4.96 z M127.24799999999999 37.32 c-0.2 0.44 -0.28 0.8 -0.28 1.12 c1.16 -0.4 2.56 -1.52 2.88 -2.4 c0.12 -0.36 0.08 -0.72 -0.2 -0.8 c-0.44 -0.12 -1.72 0.4 -2.4 2.08 z M136.724 50.36 c-0.52 0.12 -0.88 -1.48 -0.84 -4.44 c0.08 -2.44 0.68 -10.84 1.88 -17.28 c0.28 -1.48 0.56 -2.8 0.84 -4 c-7.8 0 -8.52 0.04 -8.68 -0.56 c-0.08 -0.36 1.04 -0.84 1.36 -0.64 c0.4 0.24 0.68 0.36 1.84 0.36 l5.68 0.04 c1.28 -5.12 2.48 -7.2 3.04 -7.2 c0.32 0 0.56 0.96 0.48 1.32 c-0.12 0.48 -0.28 -0.2 -0.72 0.76 c-0.08 0.12 -0.92 2.32 -1.68 5.12 c1.4 0 1.92 0.12 5.88 0.12 c3.68 0 4.64 -0.2 4.76 0.24 c0.08 0.48 -1.88 0.44 -4.88 0.44 l-6 0 c-0.36 1.44 -0.72 2.96 -0.96 4.44 c-0.36 1.96 -0.96 5.44 -1.48 9.64 c-0.32 2.28 -0.72 7.96 -0.48 9.88 c0.2 1.52 0.52 1.68 -0.04 1.76 z"></path></g></svg>
                 <div class="flex items-center gap-4 lg:order-2">
-
+                    <RouterLink 
+                                v-if="!isAuthenticated"
+                                class="font-bold" to="/login">Go to login</RouterLink>
+                
+                            <RouterLink 
+                                v-if="isAuthenticated"
+                                class="font-bold" to="/dashboard">Go to dashboard</RouterLink>
                     <button data-collapse-toggle="mobile-menu-2" type="button" class="inline-flex items-center p-2 ml-1 text-sm text-gray-500 rounded-lg lg:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-600" aria-controls="mobile-menu-2" aria-expanded="false">
                         <span class="sr-only">Open main menu</span>
                         <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M3 5a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 10a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 15a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1z" clip-rule="evenodd"></path></svg>
                         <svg class="hidden w-6 h-6" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z" clip-rule="evenodd"></path></svg>
                     </button>
                 </div>
+                
                 <div class="hidden justify-between items-center w-full lg:flex lg:w-auto lg:order-1" id="mobile-menu-2">
                     <ul class="flex flex-col mt-4 font-medium lg:flex-row lg:space-x-8 lg:mt-0">
                         <li>
@@ -34,131 +38,42 @@
                         <li>
                             <a href="#" class="block py-2 pr-4 pl-3 text-gray-700 border-b border-gray-100 hover:bg-gray-50 lg:hover:bg-transparent lg:border-0 lg:hover:text-blue-700 lg:p-0 dark:text-gray-400 lg:dark:hover:text-white dark:hover:bg-gray-700 dark:hover:text-white lg:dark:hover:bg-transparent dark:border-gray-700">Contact</a>
                         </li>
+
                     </ul>
                 </div>
             </div>
         </nav>
     </header>
 
-     <section class="bg-white dark:bg-gray-900">
+     <section class="bg-gray-900 dark:bg-gray-900">
         <div class="grid max-w-screen-xl px-4 py-8 mx-auto lg:gap-8 xl:gap-0 lg:py-16 lg:grid-cols-12">
             <div class="mr-auto place-self-center lg:col-span-7">
-                <h1 class="max-w-2xl mb-4 text-4xl font-extrabold leading-none md:text-5xl xl:text-6xl dark:text-white">Payments tool for software companies</h1>
-                <p class="max-w-2xl mb-6 font-light text-gray-500 lg:mb-8 md:text-lg lg:text-xl dark:text-gray-400">From checkout to global sales tax compliance, companies around the world use Flowbite to simplify their payment stack.</p>
+                <h1 class="text-gray-200 max-w-2xl mb-4 text-4xl font-extrabold leading-none md:text-5xl xl:text-6xl dark:text-white">Find Your Dream Job with JobMarket</h1>
+                <p class="max-w-2xl mb-6 font-light text-white lg:mb-8 md:text-lg lg:text-xl dark:text-gray-400">Search millions of job listings from top companies around the world and take your career to the next level. With JobSearch, you can easily find the perfect job based on your skills, experience, and interests. Sign up today and start exploring endless possibilities!</p>
                 <a href="#" class="inline-flex items-center justify-center px-5 py-3 mr-3 text-base font-medium text-center text-white rounded-lg bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 dark:focus:ring-blue-900">
                     Get started
                     <svg class="w-5 h-5 ml-2 -mr-1" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z" clip-rule="evenodd"></path></svg>
                 </a>
-                <a href="#" class="inline-flex items-center justify-center px-5 py-3 text-base font-medium text-center text-gray-900 border border-gray-300 rounded-lg hover:bg-gray-100 focus:ring-4 focus:ring-gray-100 dark:text-white dark:border-gray-700 dark:hover:bg-gray-700 dark:focus:ring-gray-800">
-                    Speak to Sales
-                </a> 
+                
             </div>
             <div class="hidden lg:mt-0 lg:col-span-5 lg:flex">
-                <img src="https://flowbite.s3.amazonaws.com/blocks/marketing-ui/hero/phone-mockup.png" alt="mockup">
+                <img src="https://images.unsplash.com/photo-1507679799987-c73779587ccf?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1171&q=80" alt="mockup">
             </div>                
         </div>
     </section> 
 
 
 
-    <!-- <section class="bg-gray-50 dark:bg-gray-800">
-        <div class="py-8 px-4 mx-auto max-w-screen-xl sm:py-16 lg:px-6">
-            <div class="max-w-screen-md mb-8 lg:mb-16">
-                <h2 class="mb-4 text-4xl font-extrabold text-gray-900 dark:text-white">Designed for business teams like yours</h2>
-                <p class="text-gray-500 sm:text-xl dark:text-gray-400">Here at Flowbite we focus on markets where technology, innovation, and capital can unlock long-term value and drive economic growth.</p>
-            </div>
-            <div class="space-y-8 md:grid md:grid-cols-2 lg:grid-cols-3 md:gap-12 md:space-y-0">
-                <div>
-                    <div class="flex justify-center items-center mb-4 w-10 h-10 rounded-full bg-blue-100 lg:h-12 lg:w-12 dark:bg-blue-900">
-                        <svg class="w-5 h-5 text-blue-600 lg:w-6 lg:h-6 dark:text-blue-300" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M3 3a1 1 0 000 2v8a2 2 0 002 2h2.586l-1.293 1.293a1 1 0 101.414 1.414L10 15.414l2.293 2.293a1 1 0 001.414-1.414L12.414 15H15a2 2 0 002-2V5a1 1 0 100-2H3zm11.707 4.707a1 1 0 00-1.414-1.414L10 9.586 8.707 8.293a1 1 0 00-1.414 0l-2 2a1 1 0 101.414 1.414L8 10.414l1.293 1.293a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path></svg>
-                    </div>
-                    <h3 class="mb-2 text-xl font-bold dark:text-white">Marketing</h3>
-                    <p class="text-gray-500 dark:text-gray-400">Plan it, create it, launch it. Collaborate seamlessly with all  the organization and hit your marketing goals every month with our marketing plan.</p>
-                </div>
-                <div>
-                    <div class="flex justify-center items-center mb-4 w-10 h-10 rounded-full bg-blue-100 lg:h-12 lg:w-12 dark:bg-blue-900">
-                        <svg class="w-5 h-5 text-blue-600 lg:w-6 lg:h-6 dark:text-blue-300" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path d="M10.394 2.08a1 1 0 00-.788 0l-7 3a1 1 0 000 1.84L5.25 8.051a.999.999 0 01.356-.257l4-1.714a1 1 0 11.788 1.838L7.667 9.088l1.94.831a1 1 0 00.787 0l7-3a1 1 0 000-1.838l-7-3zM3.31 9.397L5 10.12v4.102a8.969 8.969 0 00-1.05-.174 1 1 0 01-.89-.89 11.115 11.115 0 01.25-3.762zM9.3 16.573A9.026 9.026 0 007 14.935v-3.957l1.818.78a3 3 0 002.364 0l5.508-2.361a11.026 11.026 0 01.25 3.762 1 1 0 01-.89.89 8.968 8.968 0 00-5.35 2.524 1 1 0 01-1.4 0zM6 18a1 1 0 001-1v-2.065a8.935 8.935 0 00-2-.712V17a1 1 0 001 1z"></path></svg>
-                    </div>
-                    <h3 class="mb-2 text-xl font-bold dark:text-white">Legal</h3>
-                    <p class="text-gray-500 dark:text-gray-400">Protect your organization, devices and stay compliant with our structured workflows and custom permissions made for you.</p>
-                </div>
-                <div>
-                    <div class="flex justify-center items-center mb-4 w-10 h-10 rounded-full bg-blue-100 lg:h-12 lg:w-12 dark:bg-blue-900">
-                        <svg class="w-5 h-5 text-blue-600 lg:w-6 lg:h-6 dark:text-blue-300" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M6 6V5a3 3 0 013-3h2a3 3 0 013 3v1h2a2 2 0 012 2v3.57A22.952 22.952 0 0110 13a22.95 22.95 0 01-8-1.43V8a2 2 0 012-2h2zm2-1a1 1 0 011-1h2a1 1 0 011 1v1H8V5zm1 5a1 1 0 011-1h.01a1 1 0 110 2H10a1 1 0 01-1-1z" clip-rule="evenodd"></path><path d="M2 13.692V16a2 2 0 002 2h12a2 2 0 002-2v-2.308A24.974 24.974 0 0110 15c-2.796 0-5.487-.46-8-1.308z"></path></svg>                    
-                    </div>
-                    <h3 class="mb-2 text-xl font-bold dark:text-white">Business Automation</h3>
-                    <p class="text-gray-500 dark:text-gray-400">Auto-assign tasks, send Slack messages, and much more. Now power up with hundreds of new templates to help you get started.</p>
-                </div>
-                <div>
-                    <div class="flex justify-center items-center mb-4 w-10 h-10 rounded-full bg-blue-100 lg:h-12 lg:w-12 dark:bg-blue-900">
-                        <svg class="w-5 h-5 text-blue-600 lg:w-6 lg:h-6 dark:text-blue-300" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path d="M8.433 7.418c.155-.103.346-.196.567-.267v1.698a2.305 2.305 0 01-.567-.267C8.07 8.34 8 8.114 8 8c0-.114.07-.34.433-.582zM11 12.849v-1.698c.22.071.412.164.567.267.364.243.433.468.433.582 0 .114-.07.34-.433.582a2.305 2.305 0 01-.567.267z"></path><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm1-13a1 1 0 10-2 0v.092a4.535 4.535 0 00-1.676.662C6.602 6.234 6 7.009 6 8c0 .99.602 1.765 1.324 2.246.48.32 1.054.545 1.676.662v1.941c-.391-.127-.68-.317-.843-.504a1 1 0 10-1.51 1.31c.562.649 1.413 1.076 2.353 1.253V15a1 1 0 102 0v-.092a4.535 4.535 0 001.676-.662C13.398 13.766 14 12.991 14 12c0-.99-.602-1.765-1.324-2.246A4.535 4.535 0 0011 9.092V7.151c.391.127.68.317.843.504a1 1 0 101.511-1.31c-.563-.649-1.413-1.076-2.354-1.253V5z" clip-rule="evenodd"></path></svg>
-                    </div>
-                    <h3 class="mb-2 text-xl font-bold dark:text-white">Finance</h3>
-                    <p class="text-gray-500 dark:text-gray-400">Audit-proof software built for critical financial operations like month-end close and quarterly budgeting.</p>
-                </div>
-                <div>
-                    <div class="flex justify-center items-center mb-4 w-10 h-10 rounded-full bg-blue-100 lg:h-12 lg:w-12 dark:bg-blue-900">
-                        <svg class="w-5 h-5 text-blue-600 lg:w-6 lg:h-6 dark:text-blue-300" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path d="M7 3a1 1 0 000 2h6a1 1 0 100-2H7zM4 7a1 1 0 011-1h10a1 1 0 110 2H5a1 1 0 01-1-1zM2 11a2 2 0 012-2h12a2 2 0 012 2v4a2 2 0 01-2 2H4a2 2 0 01-2-2v-4z"></path></svg>
-                    </div>
-                    <h3 class="mb-2 text-xl font-bold dark:text-white">Enterprise Design</h3>
-                    <p class="text-gray-500 dark:text-gray-400">Craft beautiful, delightful experiences for both marketing and product with real cross-company collaboration.</p>
-                </div>
-                <div>
-                    <div class="flex justify-center items-center mb-4 w-10 h-10 rounded-full bg-blue-100 lg:h-12 lg:w-12 dark:bg-blue-900">
-                        <svg class="w-5 h-5 text-blue-600 lg:w-6 lg:h-6 dark:text-blue-300" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M11.49 3.17c-.38-1.56-2.6-1.56-2.98 0a1.532 1.532 0 01-2.286.948c-1.372-.836-2.942.734-2.106 2.106.54.886.061 2.042-.947 2.287-1.561.379-1.561 2.6 0 2.978a1.532 1.532 0 01.947 2.287c-.836 1.372.734 2.942 2.106 2.106a1.532 1.532 0 012.287.947c.379 1.561 2.6 1.561 2.978 0a1.533 1.533 0 012.287-.947c1.372.836 2.942-.734 2.106-2.106a1.533 1.533 0 01.947-2.287c1.561-.379 1.561-2.6 0-2.978a1.532 1.532 0 01-.947-2.287c.836-1.372-.734-2.942-2.106-2.106a1.532 1.532 0 01-2.287-.947zM10 13a3 3 0 100-6 3 3 0 000 6z" clip-rule="evenodd"></path></svg>
-                    </div>
-                    <h3 class="mb-2 text-xl font-bold dark:text-white">Operations</h3>
-                    <p class="text-gray-500 dark:text-gray-400">Keep your company’s lights on with customizable, iterative, and structured workflows built for all efficient teams and individual.</p>
-                </div>
-            </div>
-        </div>
-      </section> -->
 
-      <!-- <section class="bg-white dark:bg-gray-900">
-        <div class="gap-16 items-center py-8 px-4 mx-auto max-w-screen-xl lg:grid lg:grid-cols-2 lg:py-16 lg:px-6">
-            <div class="font-light text-gray-500 sm:text-lg dark:text-gray-400">
-                <h2 class="mb-4 text-4xl font-extrabold text-gray-900 dark:text-white">We didn't reinvent the wheel</h2>
-                <p class="mb-4">We are strategists, designers and developers. Innovators and problem solvers. Small enough to be simple and quick, but big enough to deliver the scope you want at the pace you need. Small enough to be simple and quick, but big enough to deliver the scope you want at the pace you need.</p>
-                <p>We are strategists, designers and developers. Innovators and problem solvers. Small enough to be simple and quick.</p>
-            </div>
-            <div class="grid grid-cols-2 gap-4 mt-8">
-                <img class="w-full rounded-lg" src="https://flowbite.s3.amazonaws.com/blocks/marketing-ui/content/office-long-2.png" alt="office content 1">
-                <img class="mt-4 w-full lg:mt-10 rounded-lg" src="https://flowbite.s3.amazonaws.com/blocks/marketing-ui/content/office-long-1.png" alt="office content 2">
-            </div>
-        </div>
-    </section> -->
 
-    <!-- <section class="bg-gray-50 dark:bg-gray-900 ">
-        <div class="py-8 px-4 mx-auto max-w-screen-xl lg:py-16 lg:px-6">
-            <div class="max-w-screen-lg text-gray-500 sm:text-lg dark:text-gray-400">
-                <h2 class="mb-4 text-4xl font-bold text-gray-900 dark:text-white">Powering innovation at <span class="font-extrabold">200,000+</span> companies worldwide</h2>
-                <p class="mb-4 font-light">Track work across the enterprise through an open, collaborative platform. Link issues across Jira and ingest data from other software development tools, so your IT support and operations teams have richer contextual information to rapidly respond to requests, incidents, and changes.</p>
-                <p class="mb-4 font-medium">Deliver great service experiences fast - without the complexity of traditional ITSM solutions.Accelerate critical development work, eliminate toil, and deploy changes with ease.</p>
-                <a href="#" class="inline-flex items-center font-medium text-blue-600 hover:text-blue-800 dark:text-blue-500 dark:hover:text-blue-700">
-                    Learn more
-                    <svg class="ml-1 w-6 h-6" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z" clip-rule="evenodd"></path></svg>
-                </a>
-            </div>
-        </div>
-      </section>
-
-      <section class="bg-white dark:bg-gray-900">
-        <div class="py-8 px-4 mx-auto max-w-screen-xl sm:py-16 lg:px-6">
-            <div class="mx-auto max-w-screen-sm text-center">
-                <h2 class="mb-4 text-4xl font-extrabold leading-tight text-gray-900 dark:text-white">Start your free trial today</h2>
-                <p class="mb-6 font-light text-gray-500 dark:text-gray-400 md:text-lg">Try Flowbite Platform for 30 days. No credit card required.</p>
-                <a href="#" class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 mr-2 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800">Free trial for 30 days</a>
-            </div>
-        </div>
-    </section> -->
 
     <footer class="p-4 bg-gray-50 sm:p-6 dark:bg-gray-800">
         <div class="mx-auto max-w-screen-xl">
             <div class="md:flex md:justify-between">
                 <div class="mb-6 md:mb-0">
                     <a href="https://flowbite.com" class="flex items-center">
-                        <img src="https://flowbite.com/docs/images/logo.svg" class="mr-3 h-8" alt="FlowBite Logo" />
-                        <span class="self-center text-2xl font-semibold whitespace-nowrap dark:text-white">Flowbite</span>
+                        <!-- <img src="https://flowbite.com/docs/images/logo.svg" class="mr-3 h-8" alt="FlowBite Logo" /> -->
+                        <span class="self-center text-2xl font-semibold whitespace-nowrap dark:text-white">Job Market</span>
                     </a>
                 </div>
                 <div class="grid grid-cols-2 gap-8 sm:gap-6 sm:grid-cols-3">
@@ -166,10 +81,10 @@
                         <h2 class="mb-6 text-sm font-semibold text-gray-900 uppercase dark:text-white">Resources</h2>
                         <ul class="text-gray-600 dark:text-gray-400">
                             <li class="mb-4">
-                                <a href="#" class="hover:underline">Flowbite</a>
+                                <a href="#" class="hover:underline">Item 1</a>
                             </li>
                             <li>
-                                <a href="#" class="hover:underline">Tailwind CSS</a>
+                                <a href="#" class="hover:underline">Item 2</a>
                             </li>
                         </ul>
                     </div>
@@ -199,7 +114,7 @@
             </div>
             <hr class="my-6 border-gray-200 sm:mx-auto dark:border-gray-700 lg:my-8" />
             <div class="sm:flex sm:items-center sm:justify-between">
-                <span class="text-sm text-gray-500 sm:text-center dark:text-gray-400">© 2022 <a href="#" class="hover:underline">Your website</a>. All Rights Reserved.
+                <span class="text-sm text-gray-500 sm:text-center dark:text-gray-400">© 2022 <a href="#" class="hover:underline">JobMarket</a>. All Rights Reserved.
                 </span>
                 <div class="flex mt-4 space-x-6 sm:justify-center sm:mt-0">
                     <a href="#" class="text-gray-500 hover:text-gray-900 dark:hover:text-white">
@@ -229,10 +144,5 @@ let store = useStore()
 const isAuthenticated = store.getters.authenticated
 console.log(isAuthenticated)
 </script>   
-                        <!-- <RouterLink 
-                            v-if="!isAuthenticated"
-                            class="font-bold" to="/login">Go to login</RouterLink>
-    
-                        <RouterLink 
-                            v-if="isAuthenticated"
-                            class="font-bold" to="/dashboard">Go to dashboard</RouterLink> -->
+                        
+

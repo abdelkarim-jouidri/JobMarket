@@ -61,7 +61,7 @@ import { ref, watch } from 'vue';
     }
 
     let add = ()=>{
-        axios.post('/dashboard/myjobs',{
+        axios.post('/api/dashboard/myjobs',{
             'title':title.value,
             'job_type':job_type.value,
             'status': status.value,

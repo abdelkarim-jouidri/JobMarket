@@ -8,7 +8,7 @@
                 <router-link 
                     exact-active-class="bg-gray-700 text-white" 
                     class="w-[80%] rounded-lg text-sm font-medium  hover:rounded-md hover:text-white hover:bg-gray-700 px-4 py-3 text-center text-gray-300" 
-                    to="/dashboard" >
+                    to="/dashboard/home" >
                     Go to Home
                 </router-link>
                 <router-link 
@@ -93,6 +93,7 @@ let currentJobId = ref(null)
 let currentJob = ref(null)
 let showUpdate = ref(false)
 
+
 function confirmUpdate(id){
     alert(id)
     axios.put(`/dashboard/myjobs/${id}`,{
@@ -131,7 +132,10 @@ function handle(id){
 
 
 
-onMounted(fetchJobs)
+onMounted(()=>{
+    fetchJobs()
+    console.log(jobs)    
+})
 
 
 
