@@ -1,7 +1,7 @@
 <template>
             <button class="bg-blue-300 px-6 py-2 hover:bg-blue-500 rounded-lg" @click="$emit('add')">Add</button>
     <div 
-        v-if="jobs.length"
+        v-if="employerJobs.length"
         id="main-content" class="-my-2 overflow-x-auto sm:-mx-6 lg:-mx-8">
         <div class="py-2 align-middle inline-block min-w-full sm:px-6 lg:px-8">
             <div class="shadow overflow-hidden border-b border-gray-200 sm:rounded-lg">
@@ -30,15 +30,15 @@
                     </tr>
                 </thead>
                 <tbody class="bg-white divide-y divide-gray-200">
-                    <tr v-for="job in jobs">
+                    <tr v-for="job in employerJobs">
                         <td class="px-6 py-4 whitespace-nowrap">
                             <div class="text-sm font-medium text-gray-900">{{job.title}}</div>
                         </td>
                         <td class="px-6 py-4 whitespace-nowrap">
-                            <div class="text-sm font-medium text-gray-900">{{job.jobType}}</div>
+                            <div class="text-sm font-medium text-gray-900">{{job.job_type}}</div>
                         </td>
                         <td class="px-6 py-4 whitespace-nowrap">
-                            <div class="text-sm font-medium text-gray-900">{{job.contractType}}</div>
+                            <div class="text-sm font-medium text-gray-900">{{job.contract_type}}</div>
                         </td>
                         <td class="px-6 py-4 whitespace-nowrap">
                             <div class="text-sm font-medium text-gray-900">{{job['description']}}</div>
@@ -92,12 +92,11 @@
 
 <script setup>
 import { onMounted } from 'vue';
-import useJobs from '../api/useJobs';
+import useEmployerJobs from '../api/useEmployerJobs';
 
 
-
-const {jobs, fetchJobs} = useJobs()
-onMounted(fetchJobs)
-console.log('jobs from about',jobs)
+const {employerJobs, fetchEmployerJobs} = useEmployerJobs()
+onMounted(fetchEmployerJobs)
+console.log('jobs from about',employerJobs)
 
 </script>

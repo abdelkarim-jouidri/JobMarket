@@ -63,10 +63,6 @@
     </section> 
 
 
-
-
-
-
     <footer class="p-4 bg-gray-50 sm:p-6 dark:bg-gray-800">
         <div class="mx-auto max-w-screen-xl">
             <div class="md:flex md:justify-between">
@@ -140,6 +136,7 @@
 
 <script setup>
 import { useStore } from 'vuex';
+
 let store = useStore()
 const isAuthenticated = store.getters.authenticated
 console.log(isAuthenticated)
