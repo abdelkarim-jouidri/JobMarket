@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Events\Test;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -16,6 +17,7 @@ class EmployerJobsController extends Controller
     {
         $user = auth()->user();
         $data = $user->jobs;
+        broadcast(new Test($data));
         return response()->json(['jobs'=>$data]);
     }
 
