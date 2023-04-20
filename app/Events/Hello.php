@@ -10,7 +10,7 @@ use Illuminate\Contracts\Broadcasting\ShouldBroadcast;
 use Illuminate\Foundation\Events\Dispatchable;
 use Illuminate\Queue\SerializesModels;
 
-class Test implements ShouldBroadcast
+class Hello implements ShouldBroadcast
 {
     use Dispatchable, InteractsWithSockets, SerializesModels;
 
@@ -29,8 +29,19 @@ class Test implements ShouldBroadcast
      *
      * @return \Illuminate\Broadcasting\Channel|array
      */
+    public function broadcastWith()
+    {
+         //echo"broadcastWith";
+        return  ['welcome'=>'welcome to the club'];
+    }
+
+    /**
+     * Get the channels the event should broadcast on.
+     *
+     * @return \Illuminate\Broadcasting\Channel|array
+     */
     public function broadcastOn()
     {
-        return new PrivateChannel('channel-name');
+        return new Channel('public');
     }
 }

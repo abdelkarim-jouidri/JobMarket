@@ -3,9 +3,10 @@
 namespace App\Http\Controllers\Api;
 
 use App\Models\Job;
+use App\Events\Hello;
 use Illuminate\Http\Request;
-use App\Http\Controllers\Controller;
 use App\Http\Resources\JobResource;
+use App\Http\Controllers\Controller;
 
 class JobsController extends Controller
 {
@@ -26,6 +27,8 @@ class JobsController extends Controller
 
     public function update(Request $request, Job $job){
         $job->update($request->all());
+        broadcast(new Hello());
+
         return response()->json(['message'=>'Job has been successfully updated']);
     }
 }

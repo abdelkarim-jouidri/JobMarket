@@ -44,6 +44,7 @@ class Controller extends BaseController
     }
 
     public function update(Request $request,Job $job){
+
         return response()->json(['request'=>$request->all()]);
     }
 }

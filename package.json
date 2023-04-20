@@ -20,7 +20,7 @@
         "laravel-echo": "^1.15.0",
         "patch-package": "^6.5.1",
         "process": "^0.11.10",
-        "pusher-js": "^8.0.2",
+        "pusher-js": "^7",
         "vue-loader": "^17.0.1",
         "vue-router": "^4.1.6",
         "vuex": "^4.1.0"

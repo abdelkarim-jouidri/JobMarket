@@ -1,5 +1,6 @@
 <?php
 
+use App\Events\Test;
 use App\Http\Controllers\auth\loginController;
 use App\Http\Controllers\auth\RegisterController;
 use App\Http\Controllers\Controller;
@@ -23,6 +24,8 @@ use Illuminate\Support\Facades\Route;
 Route::get('{any?}/{slug?}', function () {
     return view('welcome2');
 });
+
+
 
 // Route::get('/login', function () {
 //     return view('welcome2');

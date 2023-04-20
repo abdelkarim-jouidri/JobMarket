@@ -1,9 +1,11 @@
 <?php
 
 use App\Models\User;
+use App\Events\Hello;
 use Illuminate\Http\Request;
 use Laravel\Fortify\Features;
 use Illuminate\Support\Facades\Route;
+use Illuminate\Support\Facades\Broadcast;
 use App\Http\Controllers\Api\JobsController;
 use App\Http\Controllers\EmployerJobsController;
 use App\Http\Controllers\auth\RegisterController;
@@ -28,6 +30,8 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
 
+Broadcast::routes(['middleware' => ['auth:sanctum']]);
+
 Route::get('/jobs',[JobsController::class,'index']);
 Route::post('/jobs',[JobsController::class,'store']);
 Route::get('/jobs/{job}',[JobsController::class,'show']);
@@ -41,3 +45,9 @@ if (Features::enabled(Features::registration())) {
 
     Route::post('/register', [RegisterController::class,'store']);
 }
+
+Route::get('/broadcast',function(){
+
+    broadcast(new Hello());
+    return "Event has been sent!";
+});

@@ -98,10 +98,12 @@ import useEmployerJobs from '../api/useEmployerJobs';
 const {employerJobs, fetchEmployerJobs} = useEmployerJobs()
 onMounted(()=>{
     fetchEmployerJobs()
-    Echo.private('job-update').listen('.job-updated',(e)=>{
-        console.log(e)
+    Echo.channel('public').listen('Hello',(e)=>{
+        console.log('go public');
+        this.fetchEmployerJobs()
+       
     })
 })
-console.log('jobs from about',employerJobs)
+// console.log('jobs from about',employerJobs)
 
 </script>

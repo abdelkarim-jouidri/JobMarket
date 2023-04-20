@@ -138,7 +138,7 @@ function handle(id){
 
 onMounted(()=>{
     fetchJobs()
-    console.log(jobs)    
+    // console.log(jobs)    
 })
 
 

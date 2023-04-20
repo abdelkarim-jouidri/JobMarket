@@ -81,7 +81,11 @@ console.log('from update modal',job.value)
 onMounted(fetchJob(props.id))
 
 onMounted(()=>{
-    // console.log(this.id)
+    Echo.channel('public').listen('Hello',(e)=>{
+        console.log('go public');
+        fetchEmployerJobs()
+       
+    })
 })
 
 
@@ -102,8 +106,8 @@ const update = async(job)=>{
     alert('clicked')
     let res = await updateJob(job);
     console.log(res)
-    fetchJobs()
-    this.$forceUpdate()
+    // fetchJobs()
+    // this.$forceUpdate()
 }
 
 </script>
