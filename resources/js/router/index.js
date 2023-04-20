@@ -5,20 +5,16 @@ import Dashboard from "../pages/Dashboard.vue"
 import Login from '../pages/Login.vue'
 import Homey from '../pages/Homey.vue'
 import Register from '../pages/Register.vue'
+import ExploreJobs from '../pages/ExploreJobs.vue'
 import store from "../store";
 
 const routes = [
-    // {
-    //     path: "/dashboard",
-    //     name: "home",
-    //     component: Home,
-    // },
-    // {
-    //     path: "/dashboard/about",
-    //     name: "about",
-    //     component: About,
-    // },
-
+    {
+        path : '/explorejobs',
+        name : 'explore-jobs',
+        component : ExploreJobs
+    }
+    ,
     {
         path : "/dashboard",
         name : "dashboard",
