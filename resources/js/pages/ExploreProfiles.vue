@@ -2,7 +2,7 @@
     <div class="flex flex-col gap-3">
         <NavBar></NavBar>
         <div class="grid place-items-center">
-            <h1 class="font-bold mb-5">This is the explore jobs page</h1>
+            <h1 class="font-bold mb-5">This is the Profiles jobs page</h1>
             <h1 class="w-[50%] h-full">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Culpa, odit, ullam ducimus beatae assumenda reiciendis animi eligendi fugit optio officia qui quas quod nulla, excepturi ab. Illum molestiae quae harum?
             Dolorum quo aliquid quasi dolor deserunt dolores quas! Rem at ab beatae earum expedita vitae error veniam quo nemo tempore, fugiat animi, fugit molestias? Animi a veritatis laborum eum maxime?
             Quibusdam magnam delectus quo odio magni excepturi. Rem error perferendis odit nobis, officia aliquam enim quisquam doloribus amet cupiditate reiciendis illo blanditiis. Nobis ut hic esse optio odit facere porro.

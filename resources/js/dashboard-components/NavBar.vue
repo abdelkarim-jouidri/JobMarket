@@ -51,11 +51,21 @@
                     </RouterLink>
                     <!-- <a href="#" class="bg-gray-900 text-white rounded-md px-3 py-2 text-sm font-medium" aria-current="page">Dashboard</a> -->
                     <RouterLink
+                        v-if="store.getters.user.isCandidate"
+
                         exact-active-class="bg-gray-700 text-white" 
 
                         to="/explorejobs"
                         class="text-gray-300 hover:bg-gray-700 hover:text-white rounded-md px-3 py-2 text-sm font-medium">
                         Explore Jobs
+                    </RouterLink>
+                    <RouterLink
+                        v-if="store.getters.user.isEmployer"
+                        exact-active-class="bg-gray-700 text-white" 
+
+                        to="/exploreprofiles"
+                        class="text-gray-300 hover:bg-gray-700 hover:text-white rounded-md px-3 py-2 text-sm font-medium">
+                        Explore Profiles
                     </RouterLink>
                 </div>
                 </div>
@@ -122,8 +132,8 @@ import { useRouter } from 'vue-router';
 let router = useRouter()
 let store = useStore()
 
+console.log(store.getters.user.isCandidate)
 let logout = async ()=> {
-    alert('clickde')
     store.dispatch('logout')
             .then(()=>{
                 router.replace({name:'homey'})

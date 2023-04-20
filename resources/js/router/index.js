@@ -6,9 +6,16 @@ import Login from '../pages/Login.vue'
 import Homey from '../pages/Homey.vue'
 import Register from '../pages/Register.vue'
 import ExploreJobs from '../pages/ExploreJobs.vue'
+import ExploreProfiles from '../pages/ExploreProfiles.vue'
 import store from "../store";
 
 const routes = [
+    {
+        path : '/exploreprofiles',
+        name : 'explore-profiles',
+        component : ExploreProfiles
+    }
+    ,
     {
         path : '/explorejobs',
         name : 'explore-jobs',

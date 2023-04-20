@@ -139,7 +139,6 @@ import { useStore } from 'vuex';
 
 let store = useStore()
 const isAuthenticated = store.getters.authenticated
-console.log(isAuthenticated)
 </script>   
                         
 
