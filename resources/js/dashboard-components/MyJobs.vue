@@ -15,7 +15,7 @@
                         Contract type
                     </th>
                     <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-                        Job type
+                        Job Location
                     </th>
                     <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
                         Description
@@ -35,10 +35,10 @@
                             <div class="text-sm font-medium text-gray-900">{{job.title}}</div>
                         </td>
                         <td class="px-6 py-4 whitespace-nowrap">
-                            <div class="text-sm font-medium text-gray-900">{{job.job_type}}</div>
+                            <div class="text-sm font-medium text-gray-900">{{job.contract_type}}</div>
                         </td>
                         <td class="px-6 py-4 whitespace-nowrap">
-                            <div class="text-sm font-medium text-gray-900">{{job.contract_type}}</div>
+                            <div class="text-sm font-medium text-gray-900">{{job.location}}</div>
                         </td>
                         <td class="px-6 py-4 whitespace-nowrap">
                             <div class="text-sm font-medium text-gray-900">{{job['description']}}</div>

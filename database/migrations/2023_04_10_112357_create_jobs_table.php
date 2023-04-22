@@ -17,7 +17,7 @@ return new class extends Migration
             $table->id();
             $table->unsignedBigInteger('user_id');
             $table->string('title');
-            $table->string('job_type');
+            $table->string('location');
             $table->string('contract_type');
             $table->string('status');
             $table->longText('description');

@@ -78,15 +78,34 @@ let credentials = reactive({
     email : '',
     password : ''
 })
-const  login = async()=>{
-    store.dispatch('login', credentials)
-         .then(()=>{
-            router.replace({name:'dashboard'})
-         })
-         .catch((err)=>{
-            if(err.response.status === 422) {
-                error.value = err.response.data.errors
-            }
-            })
+const  login = async ()=>{
+    
+    try{
+        const res =  await store.dispatch('auth/login', credentials)
+        console.log(res)
+        router.push({name:'dashboard'})
+
+     }catch(err){
+        alert(err)
+     }
+
+        //  setTimeout(()=>router.replace({name:'dashboard'}),3000)
+    // console.log(res)
+        //  .then(()=>{
+        //  })
+        //  .catch((err)=>{
+        //     if(err.response.status === 422) {
+        //         error.value = err.response.data.errors
+        //     }
+        //     })
+    // try{
+    //     await store.dispatch('auth/login', credentials)
+    //     router.replace({name:'dashboard'})
+        
+    // }catch(err){
+    //     if(err.response.status === 422){
+    //         error.value = err.response.data.errots
+    //     }
+    // }
 }
 </script>

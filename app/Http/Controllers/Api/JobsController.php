@@ -7,6 +7,7 @@ use App\Events\Hello;
 use Illuminate\Http\Request;
 use App\Http\Resources\JobResource;
 use App\Http\Controllers\Controller;
+use App\Http\Resources\MyJobsCollection;
 
 class JobsController extends Controller
 {
@@ -23,6 +24,11 @@ class JobsController extends Controller
     public function show(Job $job)
     {
         return response()->json(['job'=>$job]);
+    }
+
+    public function fetch(){
+        $data = Job::paginate(2);
+        return new MyJobsCollection($data);
     }
 
     public function update(Request $request, Job $job){

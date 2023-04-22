@@ -22,23 +22,11 @@ use Illuminate\Support\Facades\Route;
 // });
 
 Route::get('{any?}/{slug?}', function () {
-    return view('welcome2');
+    return view('app');
 });
 
 
 
-// Route::get('/login', function () {
-//     return view('welcome2');
-// });
-
-
-
-// Route::get('/register', [RegisterController::class,'create'])->middleware('guest');
-// Route::post('/register', [RegisterController::class,'store'])->middleware('guest');;
-// // Route::get('/login', [loginController::class,'create']);
-
 Route::post('/api/dashboard/myjobs',[Controller::class,'test']);
-// Route::get('/about',[Controller::class,'index']);
-// Route::delete('/dashboard/myjobs/{job}',[Controller::class,'destroy']);
-// Route::get('/dashboard/myjobs/{job}',[Controller::class,'show']);
+
 Route::put('/api/dashboard/myjobs/{job}',[Controller::class,'update']);

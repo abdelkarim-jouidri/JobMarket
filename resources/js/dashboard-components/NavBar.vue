@@ -40,34 +40,36 @@
                     </div>
                 </div>
                 <div class="hidden sm:ml-6 sm:block">
-                <div class="flex space-x-4">
+                <template v-if="user">
+                    <div class="flex space-x-4">
                     <!-- Current: "bg-gray-900 text-white", Default: "text-gray-300 hover:bg-gray-700 hover:text-white" -->
-                    <RouterLink
-                        exact-active-class="bg-gray-700 text-white" 
+                        <RouterLink
+                            active-class="bg-gray-700 text-white" 
 
-                        to="/dashboard"
-                        class="text-gray-300 hover:bg-gray-700 hover:text-white rounded-md px-3 py-2 text-sm font-medium">
-                        Dashboard
-                    </RouterLink>
-                    <!-- <a href="#" class="bg-gray-900 text-white rounded-md px-3 py-2 text-sm font-medium" aria-current="page">Dashboard</a> -->
-                    <RouterLink
-                        v-if="store.getters.user.isCandidate"
+                            to="/dashboard"
+                            class="text-gray-300 hover:bg-gray-700 hover:text-white rounded-md px-3 py-2 text-sm font-medium">
+                            Dashboard
+                        </RouterLink>
+                        <!-- <a href="#" class="bg-gray-900 text-white rounded-md px-3 py-2 text-sm font-medium" aria-current="page">Dashboard</a> -->
+                        <RouterLink
+                            v-if="user.isCandidate"
 
-                        exact-active-class="bg-gray-700 text-white" 
+                            exact-active-class="bg-gray-700 text-white" 
 
-                        to="/explorejobs"
-                        class="text-gray-300 hover:bg-gray-700 hover:text-white rounded-md px-3 py-2 text-sm font-medium">
-                        Explore Jobs
-                    </RouterLink>
-                    <RouterLink
-                        v-if="store.getters.user.isEmployer"
-                        exact-active-class="bg-gray-700 text-white" 
+                            to="/explorejobs"
+                            class="text-gray-300 hover:bg-gray-700 hover:text-white rounded-md px-3 py-2 text-sm font-medium">
+                            Explore Jobs
+                        </RouterLink>
+                        <RouterLink
+                            v-if="user.isEmployer"
+                            exact-active-class="bg-gray-700 text-white" 
 
-                        to="/exploreprofiles"
-                        class="text-gray-300 hover:bg-gray-700 hover:text-white rounded-md px-3 py-2 text-sm font-medium">
-                        Explore Profiles
-                    </RouterLink>
-                </div>
+                            to="/exploreprofiles"
+                            class="text-gray-300 hover:bg-gray-700 hover:text-white rounded-md px-3 py-2 text-sm font-medium">
+                            Explore Profiles
+                        </RouterLink>
+                    </div>
+                </template>
                 </div>
             </div>
             <div class="absolute inset-y-0 right-0 flex items-center pr-2 sm:static sm:inset-auto sm:ml-6 sm:pr-0">
@@ -102,11 +104,17 @@
                 -->
                 <div class="absolute right-0 z-10 mt-2 w-48 origin-top-right rounded-md bg-white py-1 shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none hidden" id="user-menu" role="menu" aria-orientation="vertical" aria-labelledby="user-menu-button" tabindex="-1">
                     <!-- Active: "bg-gray-100", Not Active: "" -->
-                    <a href="#" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-700 hover:text-white" role="menuitem" tabindex="-1" id="user-menu-item-0">{{ user?.fullname }}</a>
+                    <a href="#" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-700 hover:text-white" role="menuitem" tabindex="-1" id="user-menu-item-0">{{ user?.name }}</a>
                     <a href="#" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-700 hover:text-white" role="menuitem" tabindex="-1" id="user-menu-item-1">Settings</a>
                     <a 
-                    @click="logout"
-                    href="#" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-700 hover:text-white" role="menuitem" tabindex="-1" id="user-menu-item-2">Sign out</a>
+                        @click="logout"
+                        href="#" class="flex justify-between  px-4 py-2 text-sm text-gray-700 hover:bg-gray-700 hover:text-white" role="menuitem" tabindex="-1" id="user-menu-item-2">
+                        <span>Sign out</span>
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-6 h-6">
+                            <path fill-rule="evenodd" d="M7.5 3.75A1.5 1.5 0 006 5.25v13.5a1.5 1.5 0 001.5 1.5h6a1.5 1.5 0 001.5-1.5V15a.75.75 0 011.5 0v3.75a3 3 0 01-3 3h-6a3 3 0 01-3-3V5.25a3 3 0 013-3h6a3 3 0 013 3V9A.75.75 0 0115 9V5.25a1.5 1.5 0 00-1.5-1.5h-6zm5.03 4.72a.75.75 0 010 1.06l-1.72 1.72h10.94a.75.75 0 010 1.5H10.81l1.72 1.72a.75.75 0 11-1.06 1.06l-3-3a.75.75 0 010-1.06l3-3a.75.75 0 011.06 0z" clip-rule="evenodd" />
+                        </svg>
+
+                    </a>
                 </div>
                 </div>
             </div>
@@ -128,24 +136,29 @@
 
 <script setup>
 import { useStore } from 'vuex';
+import { computed } from 'vue';
 import { useRouter } from 'vue-router';
 let router = useRouter()
 let store = useStore()
+let user =  computed(()=>store.getters['auth/user'])
 
-console.log(store.getters.user.isCandidate)
-let logout = async ()=> {
-    store.dispatch('logout')
-            .then(()=>{
-                router.replace({name:'homey'})
-            })
-            .catch((err)=>{
-                console.log(err.response)
-            })
+
+// let isEmployer = computed(()=>store.getters['auth/user'].isEmployer)
+// let isCandidate = computed(()=>store.getters['auth/user'].isCandidate)
+
+
+
+
+async function logout() {
+    
+  try {
+    await store.dispatch('auth/logout')
+    router.replace({name:'LandingPage'})
+    
+  } catch (error) {
+    console.error(error)
+  }
 }
-
- defineProps({
-    user:Object
- })
 
  let toggleMenu = ()=> {
     document.getElementById('user-menu').classList.toggle('hidden')

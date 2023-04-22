@@ -1,11 +1,15 @@
 import axios from "axios";
 import { createStore } from "vuex";
 
-export default createStore({
+export default {
+    namespaced : true,
     state(){
         return {
             authenticated : false,
-            user : null
+            user : null,
+            isEmployer : null,
+            isCandidate : null
+
         }
     },
 
@@ -16,6 +20,13 @@ export default createStore({
 
         user(state){
             return state.user
+        },
+        isEmployer(state){
+            return state.isEmployer
+        },
+        
+        isCandidate(state){
+            return state.isCandidate
         }
     },
 
@@ -25,11 +36,18 @@ export default createStore({
         },
         SET_USER(state,user){
             state.user = user
+        },
+        SET_EMPLOYER(state,user){
+            state.isEmployer = user.isEmployer
+        },
+        SET_EMPLOYER(state,user){
+            state.isCandidate = user.isCandidate
         }
     },
 
     actions : {
         async authenticate({commit}){
+            console.log('inside authenticate function', this.state.user)
             return await axios.get('/api/user')
                         .then(response=>{
                             console.log(response.data)
@@ -44,19 +62,26 @@ export default createStore({
         },
 
         async login({dispatch},credentials){
-            await axios.post('/api/login',credentials)
+            console.log(this)
 
-            dispatch('authenticate')
+           let res =  await axios.post('/api/login',credentials)
+           
+            console.log('after post to /api/login', res)
+            
+            return dispatch('authenticate')
+            
         },
 
-        async logout(){
-            try{
+        async logout({commit}){
+            // try{
+            //     console.log(this)
+            // }catch(err){
+                //     console.log(err.response)
+                // }
+                
                 await axios.post('/api/logout')
-                this.commit('SET_AUTHENTICATED',false)
-                this.commit('SET_USER',null)
-            }catch(err){
-                console.log(err.response)
-            }
+                commit('SET_AUTHENTICATED',false)
+                commit('SET_USER',null)
         }
     }
-})
+}

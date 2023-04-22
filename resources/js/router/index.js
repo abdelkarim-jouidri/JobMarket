@@ -1,12 +1,14 @@
 import {createRouter, createWebHistory } from "vue-router";
 import Home from "../dashboard-components/Home.vue";
-import About from "../dashboard-components/About.vue"
+import MyJobs from "../dashboard-components/MyJobs.vue"
 import Dashboard from "../pages/Dashboard.vue"
 import Login from '../pages/Login.vue'
-import Homey from '../pages/Homey.vue'
+import LandingPage from '../pages/LandingPage.vue'
 import Register from '../pages/Register.vue'
 import ExploreJobs from '../pages/ExploreJobs.vue'
 import ExploreProfiles from '../pages/ExploreProfiles.vue'
+import Profile from '../dashboard-components/Profile.vue'
+import Applications from '../dashboard-components/Applications.vue'
 import store from "../store";
 
 const routes = [
@@ -26,6 +28,8 @@ const routes = [
         path : "/dashboard",
         name : "dashboard",
         component : Dashboard,
+        meta : {exact:false}
+        ,
         beforeEnter : (to, from, next)=>{
             if(!store.getters.authenticated){
                 return next({name:'login'})
@@ -35,21 +39,31 @@ const routes = [
         ,
         children : [
             {
-                path : '/dashboard/about',
-                name : "about",
-                component : About
+                path : '/dashboard/myjobs',
+                name : "myjobs",
+                component : MyJobs
             },
             {
                 path : '/dashboard/home',
                 name : "home",
                 component : Home
+            },
+            {
+                path : '/dashboard/myprofile',
+                name : "myprofile",
+                component : Profile
+            },
+            {
+                path : '/dashboard/myapplications',
+                name : "myapplications",
+                component : Applications
             }
         ]
     },
     {
         path : '/',
-        name : 'homey',
-        component : Homey
+        name : 'LandingPage',
+        component : LandingPage
     },
     {
         path : '/login',

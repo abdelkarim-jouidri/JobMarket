@@ -4,7 +4,7 @@
     :user="user"></NavBar>
     <div class="flex container mx-auto overflow-x-scroll">
         <SideBar>
-            
+
                 <router-link 
                     exact-active-class="bg-gray-700 text-white" 
                     class="w-[80%] rounded-lg text-sm font-medium  hover:rounded-md hover:text-white hover:bg-gray-700 px-4 py-3 text-center text-gray-300" 
@@ -12,10 +12,25 @@
                     Go to Home
                 </router-link>
                 <router-link 
-                    exact-active-class="bg-gray-700 text-white" 
+                    v-if="isEmployer"
+                    active-class="bg-gray-700 text-white" 
                     class="w-[80%] rounded-lg text-sm font-medium  hover:rounded-md hover:text-white hover:bg-gray-700 px-4 py-3 text-center text-gray-300" 
-                    to="/dashboard/about" >
+                    to="/dashboard/myjobs" >
                     Go to Jobs
+                </router-link>
+                <router-link 
+                    v-if="isCandidate"
+                    active-class="bg-gray-700 text-white" 
+                    class="w-[80%] rounded-lg text-sm font-medium  hover:rounded-md hover:text-white hover:bg-gray-700 px-4 py-3 text-center text-gray-300" 
+                    to="/dashboard/myprofile" >
+                    My Profile
+                </router-link>
+                <router-link 
+                    v-if="isCandidate"
+                    active-class="bg-gray-700 text-white" 
+                    class="w-[80%] rounded-lg text-sm font-medium  hover:rounded-md hover:text-white hover:bg-gray-700 px-4 py-3 text-center text-gray-300" 
+                    to="/dashboard/myapplications" >
+                    My Applications
                 </router-link>
         
     
@@ -42,7 +57,7 @@
         </MainContent>
     </div>
     <Modal 
-        :show="showModal"
+        v-if="showModal"
         :csrfToken = csrfToken
         @close="showModal = false"
         @add-item="showModal = false"
@@ -68,6 +83,7 @@
 </template>
 
 <script setup>
+import { computed } from 'vue'
 import useJobs from '../api/useJobs'
 import NavBar from '../dashboard-components/NavBar.vue'
 import SideBar from '../dashboard-components/SideBar.vue'
@@ -84,7 +100,7 @@ let store = useStore()
 
 const {fetchJob} = useJobs()
 
-let user = ref(null)
+// let user = ref(null)
 let csrfToken = ref(null);
 let showModal = ref(false)
 const {jobs, fetchJobs} = useJobs()
@@ -95,6 +111,10 @@ let currentJob = ref(null)
 let showUpdate = ref(false)
 
 
+let user = computed(()=>store.getters['auth/user'])
+
+let isEmployer = computed(()=>store.getters['auth/user'].isEmployer)
+let isCandidate = computed(()=>store.getters['auth/user'].isCandidate)
 function confirmUpdate(id){
     alert(id)
     axios.put(`/dashboard/myjobs/${id}`,{
