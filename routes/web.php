@@ -27,6 +27,6 @@ Route::get('{any?}/{slug?}', function () {
 
 
 
-Route::post('/api/dashboard/myjobs',[Controller::class,'test']);
+// Route::post('/api/dashboard/myjobs',[Controller::class,'test']);
 
-Route::put('/api/dashboard/myjobs/{job}',[Controller::class,'update']);
+// Route::put('/api/dashboard/myjobs/{job}',[Controller::class,'update']);

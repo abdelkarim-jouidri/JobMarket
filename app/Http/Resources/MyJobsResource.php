@@ -16,6 +16,10 @@ class MyJobsResource extends JsonResource
     {
         return [
             'description'=> $this->description,
+            'location'=> $this->location,
+            'status'=> $this->status,
+            'title'=> $this->title,
+            'contract_type'=> $this->contract_type,
             'user'=>$this->user
         ];
     }

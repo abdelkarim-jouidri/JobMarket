@@ -2,8 +2,9 @@
     <NavBar 
     @logout="logout"
     :user="user"></NavBar>
-    <div class="flex container mx-auto overflow-x-scroll">
-        <SideBar>
+    <div class="flex container mx-auto ">
+        <template v-if="user">
+            <SideBar>
 
                 <router-link 
                     exact-active-class="bg-gray-700 text-white" 
@@ -32,9 +33,10 @@
                     to="/dashboard/myapplications" >
                     My Applications
                 </router-link>
-        
-    
-        </SideBar>
+
+
+            </SideBar>
+        </template>
         <MainContent 
             
             >
@@ -79,7 +81,6 @@
         :id="currentJobId"
         @confirm-update="confirmUpdate"
         />
-        current job : {{ currentJob }}
 </template>
 
 <script setup>

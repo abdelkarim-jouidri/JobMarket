@@ -7,6 +7,7 @@ export default function useEmployerJobs() {
 
     const fetchEmployerJobs = async()=>{
         let res = await axios.get('/api/employer/jobs')
+        console.log(res)
         employerJobs.value = res.data.jobs
     }
 

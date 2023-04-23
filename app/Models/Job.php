@@ -8,7 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 class Job extends Model
 {
     use HasFactory;
-    protected $guarded = [];
+    protected $fillable = ['title', 'status', 'description', 'location', 'contract_type'];
 
     public function user(){
         return $this->belongsTo(User::class);

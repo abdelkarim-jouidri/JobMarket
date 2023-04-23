@@ -1,8 +1,8 @@
 <template>
             <button class="bg-blue-300 px-6 py-2 hover:bg-blue-500 rounded-lg" @click="$emit('add')">Add</button>
     <div 
-        v-if="employerJobs.length"
-        id="main-content" class="-my-2 overflow-x-auto sm:-mx-6 lg:-mx-8">
+    v-if="jobs.length"
+    id="main-content" class="-my-2 overflow-x-auto sm:-mx-6 lg:-mx-8">
         <div class="py-2 align-middle inline-block min-w-full sm:px-6 lg:px-8">
             <div class="shadow overflow-hidden border-b border-gray-200 sm:rounded-lg">
                 <table class="min-w-full divide-y divide-gray-200">
@@ -30,7 +30,7 @@
                     </tr>
                 </thead>
                 <tbody class="bg-white divide-y divide-gray-200">
-                    <tr v-for="job in employerJobs">
+                    <tr v-for="job in jobs">
                         <td class="px-6 py-4 whitespace-nowrap">
                             <div class="text-sm font-medium text-gray-900">{{job.title}}</div>
                         </td>
@@ -41,7 +41,7 @@
                             <div class="text-sm font-medium text-gray-900">{{job.location}}</div>
                         </td>
                         <td class="px-6 py-4 whitespace-nowrap">
-                            <div class="text-sm font-medium text-gray-900">{{job['description']}}</div>
+                            <div class="text-sm font-medium text-gray-900">{{job['description'].slice(0,50)+' ...'}}</div>
                         </td>
                         <td class="px-6 py-4 whitespace-nowrap">
                             <span class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-green-100 " :class="{'bg-green-800 text-green-100': job.status=='opened' , 'bg-red-800 text-red-400' : job.status=='closed'}">
@@ -91,16 +91,18 @@
 </template>
 
 <script setup>
-import { onMounted } from 'vue';
-import useEmployerJobs from '../api/useEmployerJobs';
+import { computed, onMounted } from 'vue';
+import { useStore } from 'vuex';
+let store = useStore()
+let employerJobs  = []
 
-
-const {employerJobs, fetchEmployerJobs} = useEmployerJobs()
+let jobs = computed(()=>store.getters['employerJobs/jobs'])
+console.log(store.getters)
 onMounted(()=>{
-    fetchEmployerJobs()
+    store.dispatch('employerJobs/fetchJobs')
     Echo.channel('public').listen('Hello',(e)=>{
-        console.log('go public');
-        this.fetchEmployerJobs()
+        console.log(e)
+        store.dispatch('employerJobs/fetchJobs')
        
     })
 })

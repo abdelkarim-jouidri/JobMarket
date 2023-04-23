@@ -3,6 +3,7 @@ import axios from "axios"
 export default {
     namespaced : true,
     state : {
+        employerJobs : [],
         jobs : [],
         job : {}
     },
@@ -16,6 +17,9 @@ export default {
     mutations : {
         PUSH_JOBS(state,data){
             state.jobs.push(...data)
+        },
+        PUSH_EMPLOYER_JOBS(state,data){
+            state.employerJobs.push(...data)
         }
     },
 
@@ -24,8 +28,16 @@ export default {
             try{
                 console.log('inside getjobs')
             let res = await axios.get('/api/myjobs')
-            console.log(res.data)
-
+            commit('PUSH_JOBS',res.data.data)
+            }catch(err){
+                console.log(err)
+            }
+        },
+        async getEmployerJobs({commit}){
+            try{
+                console.log('inside getjobs')
+            let res = await axios.get('/api/employer/jobs')
+            // commit('PUSH_EMPLOYER_JOBS',res.data.data)
             }catch(err){
                 console.log(err)
             }

@@ -1,15 +1,16 @@
 <template>
     <div class="flex flex-col gap-3">
         <NavBar></NavBar>
-        <div class="grid place-items-center">
+        <div class="grid place-items-center p-6">
             <h1 class="font-bold mb-5">This is the explore jobs page</h1>
-            <div class="grid flex-col gap-2">
+            <div class="grid flex-col gap-2 mb-8 w-full">
                 <button @click="getJobs">click me</button>
-                <Job></Job>
-                <Job></Job>
-                <Job></Job>
+                <Job 
+                    v-for="job in jobs"
+                    :job="job"
+                    :key="job.id"></Job>
             </div>
-            <!-- <JobModal></JobModal> -->
+            <button class="px-4 py-2 bg-gray-800 rounded-md text-white">Load More Jobs</button>
         </div>
     </div>
 </template>
@@ -23,9 +24,11 @@ import JobModal from '../components/jobs/JobModal.vue';
     import { computed, onMounted } from 'vue';
 
     let store = useStore()
-    let jobs = computed(()=>store.getters['jobs/jobs']).value
+    let jobs = store.getters['jobs/jobs']
+    console.log(store.getters['jobs/jobs'])
     onMounted(()=>{
         store.dispatch('jobs/getJobs')
+        // store.dispatch('jobs/getEmployerJobs')
     })
     
 </script>

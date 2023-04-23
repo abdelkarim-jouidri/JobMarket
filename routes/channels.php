@@ -13,6 +13,6 @@ use Illuminate\Support\Facades\Broadcast;
 |
 */
 
-Broadcast::channel('job.{id}', function ($user, $id) {
-    return true;
+Broadcast::channel('employerJobp.{id}', function ($user, $id) {
+    return (int) $user->id === (int) $id;
 });

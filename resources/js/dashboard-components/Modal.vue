@@ -36,7 +36,7 @@
         <section class="bg-white dark:bg-gray-900 w-[50%] h-[80%] overflow-y-scroll">
             <div class="py-8 px-4 mx-auto max-w-2xl lg:py-16 ">
                 <h2 class="mb-4 text-xl font-bold text-gray-900 dark:text-white">Add a new Job</h2>
-                <form @submit.prevent="">
+                <form @submit.prevent="addJob(job)">
                     {{ job }}
                     <div class="grid gap-4 sm:grid-cols-2 sm:gap-6">
                         <div class="sm:col-span-2">
@@ -72,8 +72,7 @@
                     </div>
                     <div class="flex mt-3  justify-between">
                         <button 
-                            @click="close"
-                            type="button" class="text-white bg-gray-700 hover:bg-gray-900 focus:ring-4 focus:outline-none focus:ring-[#3b5998]/50 font-medium rounded-lg text-sm px-5 py-2.5 text-center inline-flex items-center dark:focus:ring-[#3b5998]/55 mr-2 mb-2">
+                            type="submit" class="text-white bg-gray-700 hover:bg-gray-900 focus:ring-4 focus:outline-none focus:ring-[#3b5998]/50 font-medium rounded-lg text-sm px-5 py-2.5 text-center inline-flex items-center dark:focus:ring-[#3b5998]/55 mr-2 mb-2">
                         Add Job
                         </button>
                         <button @click="close" type="button" class="text-black bg-gray-100 hover:bg-gray-200 focus:ring-4 focus:outline-none focus:ring-[#3b5998]/50 font-medium rounded-lg text-sm px-5 py-2.5 text-center inline-flex items-center dark:focus:ring-[#3b5998]/55 mr-2 mb-2">
@@ -89,9 +88,16 @@
 
 <script setup>
 import axios from 'axios';
-import { reactive , ref, watch } from 'vue';
-import useJobs from '../api/useJobs';
-const {createJob} = useJobs()
+import Echo from 'laravel-echo';
+import { onMounted, reactive , ref, watch } from 'vue';
+import { useStore } from 'vuex';
+
+let userToken = ref(null)
+
+
+let store = useStore()
+
+let user = store.getters['auth/user']
 
 let job = reactive({
     title :'',
@@ -99,6 +105,13 @@ let job = reactive({
     contract_type : '',
     status : '',
     description : ''
+})
+
+onMounted(()=>{
+    window.Echo.channel('employerJob').listen('.JobWasCreated',(e)=>{
+        store.dispatch('employerJobs/fetchJobs')
+        console.log(e)
+    })
 })
 
    
@@ -110,22 +123,16 @@ let job = reactive({
 
     defineProps({
         show : Boolean,
-        csrfToken : String
     })
 
     let close = ()=>{
         emit('close')
     }
 
-    let add = async ()=>{
-        await createJob(job)
-            .then(res=>console.log(res))
-            .catch(err=>console.log(err))
-            emit('close')
-        
+    let addJob = async(job)=>{
+        await store.dispatch('employerJobs/storeJob',job)
     }
 
-    function closeModal(){
-        emit('close')
-    }
+
+
 </script>

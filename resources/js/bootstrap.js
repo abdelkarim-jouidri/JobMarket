@@ -31,7 +31,13 @@ window.Echo = new Echo({
     cluster: "mt1",
     forceTLS: false,
     disableStats: true,
-    encrypted : false
+    encrypted : false,
+    authEndpoint :'http://127.0.0.1:8000/api/broadcasting/auth',
+    // auth:{
+    //     headers: {
+    //         Authorization: 'Bearer '+YOUR_TOKEN_FROM_LOGIN, 
+    //     }
+    // },
 
  
 });

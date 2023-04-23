@@ -53,3 +53,7 @@ Route::get('/broadcast',function(){
     broadcast(new Hello());
     return "Event has been sent!";
 });
+
+Route::middleware('auth:sanctum')->get('/user/token', function (Request $request) {
+    return $request->user()->createToken('my-token')->plainTextToken;
+});
