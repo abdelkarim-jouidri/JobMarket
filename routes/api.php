@@ -38,6 +38,7 @@ Route::get('/jobs',[JobsController::class,'index']);
 Route::post('/jobs',[JobsController::class,'store']);
 Route::get('/jobs/{job}',[JobsController::class,'show']);
 Route::put('/jobs/{job}',[JobsController::class,'update']);
+Route::delete('/jobs/{job}',[JobsController::class,'destroy']);
 
 Route::get('/employer/jobs',[EmployerJobsController::class,'index']);
 Route::post('/employer/jobs',[EmployerJobsController::class,'test']);

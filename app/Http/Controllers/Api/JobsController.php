@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Api;
 
 use App\Models\Job;
 use App\Events\Hello;
+use App\Events\JobWasDeleted;
 use Illuminate\Http\Request;
 use App\Http\Resources\JobResource;
 use App\Http\Controllers\Controller;
@@ -27,7 +28,7 @@ class JobsController extends Controller
     }
 
     public function fetch(){
-        $data = Job::paginate(2);
+        $data = Job::all();
         return new MyJobsCollection($data);
     }
 
@@ -36,5 +37,13 @@ class JobsController extends Controller
         broadcast(new Hello());
 
         return response()->json(['message'=>'Job has been successfully updated']);
+    }
+
+    public function destroy( Job $job){
+        $job->delete();
+        broadcast(new Hello());
+
+        return response()->json(['message'=>'success']);
+
     }
 }

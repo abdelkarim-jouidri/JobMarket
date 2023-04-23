@@ -17,7 +17,7 @@
                             </button>
                         </div>
                         <!-- Modal body -->
-                        <form action="#" @submit.prevent="update(newJob)">
+                        <form v-if="newJob.hasOwnProperty('title')" action="#" @submit.prevent="update(newJob)">
                             {{ newJob }}
                             <div class="grid gap-4 mb-4 sm:grid-cols-2">
                                 <div>
@@ -55,6 +55,15 @@
                                 </button>
                             </div>
                         </form>
+                        <div v-else class="min-h-[15rem] flex flex-col bg-white border shadow-sm rounded-xl dark:bg-gray-800 dark:border-gray-700 dark:shadow-slate-700/[.7]">
+                            <div class="flex flex-auto flex-col justify-center items-center p-4 md:p-5">
+                                <div class="flex justify-center">
+                                    <div class="animate-spin inline-block w-6 h-6 border-[3px] border-current border-t-transparent text-blue-600 rounded-full" role="status" aria-label="loading">
+                                        <span class="sr-only">Loading...</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
     </div>
@@ -64,26 +73,24 @@
 import axios from 'axios';
 import { reactive,ref } from 'vue';
 import { onMounted } from 'vue';
-import { getCurrentInstance } from 'vue';
-import useJobs from '../api/useJobs';
+import { useStore } from 'vuex';
 
-const {job,fetchJob, updateJob, fetchJobs} = useJobs()
+let store = useStore()
 
-const newJob = reactive(job)
+let newJob = store.getters['employerJobs/job']
 
 const props = defineProps({
     id : Number
 })
 
-// let Id = ref(props.id)
 
-console.log('from update modal',job.value)
-onMounted(fetchJob(props.id))
+onMounted(()=>{
+    store.dispatch('employerJobs/fetchJob',props.id)
+})
 
 onMounted(()=>{
     Echo.channel('public').listen('Hello',(e)=>{
         console.log('go public');
-        fetchEmployerJobs()
        
     })
 })
@@ -104,7 +111,6 @@ let sendConfirmUpdateEvent = () => {
 
 const update = async(job)=>{
     alert('clicked')
-    let res = await updateJob(job);
     console.log(res)
     // fetchJobs()
     // this.$forceUpdate()

@@ -105,6 +105,8 @@ onMounted(()=>{
         store.dispatch('employerJobs/fetchJobs')
        
     })
+
+    
 })
 // console.log('jobs from about',employerJobs)
 

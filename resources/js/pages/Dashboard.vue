@@ -67,6 +67,7 @@
     </Modal>
     <DeleteModal 
         @delete="handle"
+        :id="currentJobId"
         @confirm-delete="confirmDelete"
         @close-delete-modal="showDeleteModal = false"
         :showDeleteModal="showDeleteModal">

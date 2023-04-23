@@ -15,8 +15,8 @@ export default {
     },
 
     mutations : {
-        PUSH_JOBS(state,data){
-            state.jobs.push(...data)
+        SET_JOBS(state,data){
+            state.jobs=[...data]
         },
         PUSH_EMPLOYER_JOBS(state,data){
             state.employerJobs.push(...data)
@@ -28,7 +28,7 @@ export default {
             try{
                 console.log('inside getjobs')
             let res = await axios.get('/api/myjobs')
-            commit('PUSH_JOBS',res.data.data)
+            commit('SET_JOBS',res.data.data)
             }catch(err){
                 console.log(err)
             }
