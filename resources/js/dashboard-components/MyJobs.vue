@@ -44,7 +44,7 @@
                             <div class="text-sm font-medium text-gray-900">{{job['description'].slice(0,50)+' ...'}}</div>
                         </td>
                         <td class="px-6 py-4 whitespace-nowrap">
-                            <span class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-green-100 " :class="{'bg-green-800 text-green-100': job.status=='opened' , 'bg-red-800 text-red-400' : job.status=='closed'}">
+                            <span class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full  " :class="{'bg-green-300 text-gray-800': job.status=='Accepting Applications' , 'bg-red-300 text-gray-800' : job.status=='Closed'}">
                                 {{job['status']}}
                             </span>
                         </td>

@@ -9,7 +9,7 @@
     @vite(['resources/js/app.js'])
     @vite('resources/css/app.css')
 
-    <title>Document</title>
+    <title>Job Market</title>
 </head>
 <body>
     <div id="app">

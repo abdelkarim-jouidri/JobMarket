@@ -11,6 +11,10 @@ export default {
     getters : {
         jobs(state){
             return state.jobs
+        },
+
+        job(state){
+            return state.job
         }
     },
 
@@ -37,7 +41,7 @@ export default {
 
         async fetchJob({commit},id){
             let res = await axios.get(`/api/jobs/${id}`)
-            console.log(res.data.job)
+            commit('SET_JOB',res.data.job)
         },
 
         async deleteJob({commit},id){

@@ -9,6 +9,9 @@ import ExploreJobs from '../pages/ExploreJobs.vue'
 import ExploreProfiles from '../pages/ExploreProfiles.vue'
 import Profile from '../dashboard-components/Profile.vue'
 import Applications from '../dashboard-components/Applications.vue'
+import AllJobs from '../components/jobs/AllJobs.vue'
+import DetailedJob from '../components/jobs/DetailedJob.vue'
+import Example from '../components/jobs/Example.vue'
 import store from "../store";
 
 const routes = [
@@ -21,9 +24,33 @@ const routes = [
     {
         path : '/explorejobs',
         name : 'explore-jobs',
-        component : ExploreJobs
-    }
-    ,
+        component : ExploreJobs,
+        redirect : '/explorejobs/all',
+        children : [
+            {
+                path : '/explorejobs/:id',
+                name : 'detailed-job',
+                component : DetailedJob,
+                props : true
+        
+            },
+            {
+                path : '/explorejobs/example',
+                name : 'example',
+                component : Example
+        
+            }
+            ,
+            {
+                path : '/explorejobs/all',
+                name : 'explore-job',
+                component : AllJobs
+        
+            }
+        ]
+        
+    },
+    
     {
         path : "/dashboard",
         name : "dashboard",
@@ -60,6 +87,7 @@ const routes = [
             }
         ]
     },
+    
     {
         path : '/',
         name : 'LandingPage',
