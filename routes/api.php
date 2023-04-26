@@ -66,6 +66,16 @@ Route::get('/application/{job_id}',function($job_id){
     }
 });
 
+Route::get('/applications',function(){
+    $user = Auth::user();
+    $applications = $user->applications()->with('job')->get();
+
+    // dd($applications);
+
+    return response()->json(['applications'=>$applications]);
+
+});
+
 
 Route::get('/employer/jobs',[EmployerJobsController::class,'index']);
 Route::post('/employer/jobs',[EmployerJobsController::class,'test']);

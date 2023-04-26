@@ -36,9 +36,9 @@ export default {
     },
 
     actions : {
-        async fetchApplication({commit}){
+        async fetchApplications({commit}){
             let res = await axios.get('/api/applications')
-            commit('SET_APPLICATIONS',res.data.data)
+            commit('SET_APPLICATIONS',res.data.applications)
         },
 
         async storeApplication({commit},payload){

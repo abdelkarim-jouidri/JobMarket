@@ -1,14 +1,14 @@
 <template>
 <div class="mb-8">
 
-        <RouterLink to="/explorejobs/all" class="cursor-pointer">
+        <!-- <RouterLink to="/explorejobs/all" class="cursor-pointer"> -->
             
-        <div class="pl-8  font-semibold">
+        <div class="pl-8  font-semibold cursor-pointer" @click="goBack">
             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
                 <path stroke-linecap="round" stroke-linejoin="round" d="M19.5 12h-15m0 0l6.75 6.75M4.5 12l6.75-6.75" />
             </svg>
         </div>
-    </RouterLink>
+    <!-- </RouterLink> -->
     <div class="p-6 flex justify-center items-center flex-col">
         <div v-if="!loading" class="w-[90%]">
             <div class="flex border-b border-gray-400 justify-between items-center p-2">
@@ -57,14 +57,7 @@
                             {{job.status}}
                     </span> 
                     <div class="font-serif w-[80%] mt-4 ">
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Ut cum quisquam natus, consectetur temporibus maiores blanditiis tempore nihil odio quas esse sequi optio explicabo earum nemo dolores doloremque quidem odit.
-                        Esse, sed laborum quas veritatis enim eum blanditiis odit non explicabo reiciendis, labore harum aliquid vel deserunt distinctio repudiandae dolorum molestiae fuga voluptate ullam exercitationem animi! Quo placeat ea deserunt.
-                        Aut ratione explicabo molestiae sit et, dolorum autem eos magni illum nobis excepturi illo animi cum numquam repellendus commodi aspernatur dolore ducimus reprehenderit dicta quae, sequi assumenda. Officia, dolor rem?
-                        Eligendi dolor harum praesentium ipsa, qui hic nemo iste at, recusandae saepe culpa laboriosam minus est ad commodi adipisci expedita? Similique beatae nulla architecto laudantium necessitatibus, molestias fuga ducimus maxime?
-                        Similique sequi totam vitae sed veniam repudiandae voluptatibus magnam corrupti! Eaque, voluptatibus dolorem. Cum harum accusamus cupiditate facere in, deleniti, quos porro, impedit quas autem dolorem odio quasi nemo quidem?
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Assumenda laudantium explicabo dignissimos dolor, ratione excepturi, optio molestias esse dolores labore error ab tenetur aut magni impedit! Excepturi sequi quam dicta.
-                        Obcaecati minima esse voluptates. Tempore, necessitatibus quis. Voluptas optio reprehenderit, iure est sint, enim quidem minus molestiae doloremque quisquam ullam expedita voluptatum, minima quae temporibus id error incidunt? Iusto, id.
-                        Nostrum blanditiis nulla eos nesciunt officia nihil, voluptate beatae itaque, illo perferendis impedit, aut adipisci et. Autem sed repudiandae aliquid perferendis deleniti? Maxime nulla quis voluptas unde quas facere voluptatum.
+                        {{job.description}}
                     </div>
                 </div>
             </div>
@@ -84,6 +77,9 @@
 import Footer from '../miscellaneous/Footer.vue'
 import { computed, onMounted, ref } from 'vue';
 import { useStore } from 'vuex';
+import { useRouter } from 'vue-router'
+
+const router = useRouter()
 let store = useStore()
 let loading = ref(true)
 let successMessage = ref(null)
@@ -103,6 +99,12 @@ let applyToJob = async(job)=>{
 
     await store.dispatch('applications/storeApplication',job)
     successMessage.value = 'Your Application has been set successfully'
+    await store.dispatch('applications/isAlreadyApplied',props.id)
+
 
 }
+
+function goBack() {
+    router.go(-1)
+  }
 </script>

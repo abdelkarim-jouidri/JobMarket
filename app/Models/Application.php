@@ -10,6 +10,11 @@ class Application extends Model
     use HasFactory;
 
     public function users(){
-        return $this->belongsToMany(User::class);
+        return $this->belongsTo(User::class);
     }
+
+    public function job(){
+        return $this->belongsTo(Job::class);
+    }
+
 }

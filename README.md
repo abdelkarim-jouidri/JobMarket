@@ -1,6 +1,6 @@
 
 # Job Market
-Job Market is a platform that intended for employers and job seekers, to connect and find the right match for their needs.
+Job Market is a platform that is intended for employers and job seekers, to connect and find the right match for their needs.
 Employers can post Job openings, explore resumes of different profiles. Job seekers on the other hand can explore job postings and apply for positions that better fit their profiles.
 Our job market website leverages the power of Single Page Application (SPA) technology to deliver an engaging user experience. Built using Vue.js, the website loads quickly and efficiently, with no page refreshes or delays.  
 
@@ -49,5 +49,5 @@ To install the Job Market Platform, follow these steps:
      Run npm run dev
      ```
  
-The Platform should now be accessible at http://localhost:8000.
+The Website should now be accessible at url : http://localhost:8000.
     
