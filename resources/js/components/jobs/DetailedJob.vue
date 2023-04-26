@@ -28,7 +28,7 @@
                 </button>
                 <button 
                     v-else
-                    class=" border bg-gray-300 p-3 rounded-lg text-lg text-white font-semibold">
+                    class=" cursor-not-allowed border bg-gray-300 p-3 rounded-lg text-lg text-white font-semibold">
                     Already Applied
                 </button>
 
