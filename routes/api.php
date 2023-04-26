@@ -4,11 +4,14 @@ use App\Models\User;
 use App\Events\Hello;
 use Illuminate\Http\Request;
 use Laravel\Fortify\Features;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Broadcast;
+use App\Http\Controllers\ResumeController;
 use App\Http\Controllers\Api\JobsController;
 use App\Http\Controllers\EmployerJobsController;
 use App\Http\Controllers\auth\RegisterController;
+use App\Models\Application;
 use Laravel\Fortify\Http\Controllers\RegisteredUserController;
 
 /*
@@ -40,8 +43,40 @@ Route::get('/jobs/{job}',[JobsController::class,'show']);
 Route::put('/jobs/{job}',[JobsController::class,'update']);
 Route::delete('/jobs/{job}',[JobsController::class,'destroy']);
 
+Route::post('/applications',function(Request $request){
+    $application = new Application();
+    $application->job_id = $request->id;
+    $application->user_id = $request->user()->id;
+    $application->save();
+    return response()->json(['application'=>$application]);
+});
+
+Route::get('/application/{job_id}',function($job_id){
+    $user_id = Auth::user()->id;
+    $application = Application::where('job_id', $job_id)
+                              ->where('user_id', $user_id)
+                              ->first();
+    if($application){
+
+        return response()->json(['data'=>true]);
+    }
+    else {
+        return response()->json(['data'=>false]);
+
+    }
+});
+
+
 Route::get('/employer/jobs',[EmployerJobsController::class,'index']);
 Route::post('/employer/jobs',[EmployerJobsController::class,'test']);
+
+Route::post('/upload-resume',[ResumeController::class,'uploadResume']);
+Route::get('/download-resume', function() {
+    $user = Auth::user();
+    $resumePath = $user->resume;
+    
+    return response()->download(storage_path('app/' . $resumePath));
+});
 
 if (Features::enabled(Features::registration())) {
     

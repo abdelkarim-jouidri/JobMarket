@@ -15,12 +15,25 @@
                 <div class="font-medium text-4xl font-sans  p-8 flex flex-col  ">
                     <span>{{ job.title }}</span>
                 </div>
-                <button class=" border bg-gray-700 p-3 rounded-lg text-lg text-white font-semibold">
+                <div class="text-green-600 font-mono font-semibold">
+                    {{ successMessage }}
+                </div>
+                <button 
+                    v-if="!alreadyApplied"
+                    :disabled="job.status=='Closed'"
+                    @click="applyToJob(job)"
+                    :class="{'cursor-not-allowed bg-gray-500/20' : job.status==='Closed'	}"
+                    class=" border bg-gray-700 p-3 rounded-lg text-lg text-white font-semibold">
                     Apply For This Job
+                </button>
+                <button 
+                    v-else
+                    class=" border bg-gray-300 p-3 rounded-lg text-lg text-white font-semibold">
+                    Already Applied
                 </button>
 
             </div>
-            <div class="mt-4 px-10 py-4">
+            <div class="mt-4 px-10 py-4 h-full">
                 <div class="font-semibold text-2xl py-4  font-mono text-gray-600">Job Details</div>
                 <div class="px-4">
                     <div class="flex flex-col gap-4 font-serif mb-4 ">
@@ -73,14 +86,23 @@ import { computed, onMounted, ref } from 'vue';
 import { useStore } from 'vuex';
 let store = useStore()
 let loading = ref(true)
+let successMessage = ref(null)
 let job = computed(()=>store.getters['employerJobs/job'])
 const props = defineProps({
     id : Number
 })
+let alreadyApplied = computed(()=>store.getters['applications/isAlreadyApplied'])
 
 onMounted(async()=>{
+    await store.dispatch('applications/isAlreadyApplied',props.id)
     await store.dispatch('employerJobs/fetchJob',props.id)
     loading.value = false
 
 })
+let applyToJob = async(job)=>{
+
+    await store.dispatch('applications/storeApplication',job)
+    successMessage.value = 'Your Application has been set successfully'
+
+}
 </script>

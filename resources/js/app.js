@@ -7,12 +7,14 @@ import { createStore } from 'vuex';
 import index from './store/index.js'
 import jobs from './store/jobs';
 import employerJobs from './store/employerJobs';
+import applications from './store/applications';
 // import store from './store';
 const store = createStore({
     modules : {
         auth : index,
         jobs,
-        employerJobs
+        employerJobs,
+        applications
     }
 })
 import router from "./router/index.js";
