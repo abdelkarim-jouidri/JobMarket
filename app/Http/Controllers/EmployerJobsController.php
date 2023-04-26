@@ -6,12 +6,14 @@ use App\Models\Job;
 use App\Events\Hello;
 use Illuminate\Http\Request;
 use App\Events\JobWasCreated;
+use Illuminate\Support\Facades\Auth;
 
 class EmployerJobsController extends Controller
 {
 
     public function index(){
-        $jobs = Job::all();
+        $user = Auth::user();
+        $jobs = Job::where('user_id', $user->id)->get();
 
         return response()->json(['data'=>$jobs]);
 

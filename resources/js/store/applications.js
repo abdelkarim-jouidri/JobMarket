@@ -6,7 +6,8 @@ export default {
     state : {
         applications : [],
         application : {},
-        isAlreadyApplied : null
+        isAlreadyApplied : null,
+        applicationsForEmployerJobs : []
     },
 
     getters : {
@@ -19,6 +20,9 @@ export default {
         },
         isAlreadyApplied(state){
             return state.isAlreadyApplied
+        },
+        applicationsForEmployerJobs(state){
+            return state.applicationsForEmployerJobs
         }
     },
 
@@ -32,6 +36,10 @@ export default {
         },
         SET_ISALREADY_APPLIED(state,data){
             state.isAlreadyApplied = data
+        },
+
+        SET_APPLICATIONS_FOR_EMPLOYER_JOBS(state,data){
+            state.applicationsForEmployerJobs = [...data]
         }
     },
 
@@ -51,7 +59,13 @@ export default {
         async isAlreadyApplied({commit},jobId){
            let res =  await axios.get(`/api/application/${jobId}`)
            commit('SET_ISALREADY_APPLIED',res.data.data)
-        }
+        },
+
+        async fetchApplicationsForEmployer({commit}){
+            let res = await axios.get('/api/applications-by-employer')
+            console.log('from applications ', res.data.data)
+            commit('SET_APPLICATIONS_FOR_EMPLOYER_JOBS',res.data.data)
+        },
 
 
         

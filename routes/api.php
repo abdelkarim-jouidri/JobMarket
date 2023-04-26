@@ -1,7 +1,9 @@
 <?php
 
+use App\Models\Job;
 use App\Models\User;
 use App\Events\Hello;
+use App\Models\Application;
 use Illuminate\Http\Request;
 use Laravel\Fortify\Features;
 use Illuminate\Support\Facades\Auth;
@@ -11,7 +13,6 @@ use App\Http\Controllers\ResumeController;
 use App\Http\Controllers\Api\JobsController;
 use App\Http\Controllers\EmployerJobsController;
 use App\Http\Controllers\auth\RegisterController;
-use App\Models\Application;
 use Laravel\Fortify\Http\Controllers\RegisteredUserController;
 
 /*
@@ -76,17 +77,24 @@ Route::get('/applications',function(){
 
 });
 
+Route::get('/applications-by-employer',function(Request $request){
+    $user = $request->user(); // Get the authenticated user
+    $jobs = Job::where('user_id', $user->id)->pluck('id'); // Get the job ids created by the user
+    $applications = App\Models\Application::whereIn('job_id', $jobs)->with('user')->with('job')->get(); // Get applications for the user's jobs
+
+    return response()->json(['data'=>$applications]);
+
+});
+
+
+
 
 Route::get('/employer/jobs',[EmployerJobsController::class,'index']);
 Route::post('/employer/jobs',[EmployerJobsController::class,'test']);
+Route::post('upload-resume',[ResumeController::class,'uploadResume']);
+Route::get('/download-resume/{id}', [ResumeController::class, 'downloadResume']);
 
-Route::post('/upload-resume',[ResumeController::class,'uploadResume']);
-Route::get('/download-resume', function() {
-    $user = Auth::user();
-    $resumePath = $user->resume;
-    
-    return response()->download(storage_path('app/' . $resumePath));
-});
+
 
 if (Features::enabled(Features::registration())) {
     

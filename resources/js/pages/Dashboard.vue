@@ -7,17 +7,18 @@
             <SideBar>
 
                 <router-link 
+                    v-if="isEmployer"
                     exact-active-class="bg-gray-700 text-white" 
                     class="w-[80%] rounded-lg text-sm font-medium  hover:rounded-md hover:text-white hover:bg-gray-700 px-4 py-3 text-center text-gray-300" 
                     to="/dashboard/home" >
-                    Go to Home
+                    Jobs Applications
                 </router-link>
                 <router-link 
                     v-if="isEmployer"
                     active-class="bg-gray-700 text-white" 
                     class="w-[80%] rounded-lg text-sm font-medium  hover:rounded-md hover:text-white hover:bg-gray-700 px-4 py-3 text-center text-gray-300" 
                     to="/dashboard/myjobs" >
-                    Go to Jobs
+                    My Jobs
                 </router-link>
                 <router-link 
                     v-if="isCandidate"
